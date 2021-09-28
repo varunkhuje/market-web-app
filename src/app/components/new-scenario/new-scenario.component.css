@@ -1,0 +1,55 @@
+.container-fluid{
+    background-color: #efeeee!important;
+    height: 100vh;
+}
+
+.header-logo{
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+    padding: 7px;
+}
+.new-scenario {
+    /* border: solid 1px #d6d6d6; */
+    /* height: 400px; */
+    width: 700px;
+    margin: 50px auto;
+}
+.mat-form-field{
+    width: 100%; 
+    margin: 15px 0;  
+}
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex{
+    background: #fff!important;
+}
+::ng-deep.mat-select-panel{
+    min-width: 390px!important;
+    margin: 50px 0 0 28px;
+}
+button.simulation-for {
+    border: solid 1px #ccc;
+    padding: 10px;
+    margin: 6px 0px;
+    border-radius: 9px;
+    width: 100%;
+    background: #fff;
+}
+.active{
+    background-color: #0272d5!important;
+    color: #fff;
+    font-weight: 500;
+}
+.simulation-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+button.inputs-samulation {
+    width: 100%;
+    border: none;
+    background: #16c81d;
+    padding: 7px;
+    border-radius: 10px;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 18px;
+}
