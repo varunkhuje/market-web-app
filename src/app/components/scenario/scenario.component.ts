@@ -35,7 +35,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ScenarioComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'market', 'category',  'brand', 'created', 'modified', 'status', 'createdby','select'];
+  displayedColumns: string[] = ['select','name', 'market', 'category',  'brand', 'created', 'modified', 'status', 'createdby'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
   search="";
@@ -73,6 +73,9 @@ export class ScenarioComponent implements OnInit {
 
   market = new FormControl();
   marketList: string[] = ['Market-1 ', 'Market-2', 'Market-3', 'Market-4', 'Market-5'];
+
+  category = new FormControl();
+  categoryList: string[] = ['Snacks', 'Beverages'];
 
   constructor() { }
 
