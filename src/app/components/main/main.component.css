@@ -2,12 +2,30 @@
     background-color: #efeeee!important;
     height: 100vh;
 }
+
+.brand-dropdown {
+    width: 100%;
+    padding: 10px 36px;
+}
+select#cars {
+    width: 280px;
+    padding: 13px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+.header-logo{
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+    padding: 7px;
+}
 button.main-btn {
     background: #fff;
     border: none;
-    width: 88%;
+    width: 92%;
     border-radius: 10px;
-    margin: 20px 10px 20px 30px;
+    margin: 20px 10px 20px 20px;
     font-size: 20px;
     color: #999;
     padding: 10px 20px;
@@ -26,8 +44,8 @@ img.icon {
     padding-right: 15px;
 }
 .main-container {
-    height: 500px;
-    width: 100%;
+    min-height: 400px;
+    width: 98%;
     background: #fff;
     margin: 20px 0;
     border-radius: 10px;
@@ -85,16 +103,13 @@ span.Vdata {
     font-size: 18px;
     font-weight: 600;
 }
-::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex{
-    background: #fff!important;
-    border: solid 1px #ccc;
-    border-radius: 10px!important;
-}
-::ng-deep.mat-form-field-wrapper{
-    margin: 5px 40px;
-}
-
-::ng-deep.mat-form-field-underline::before{
-    background: none!important;
-    display: none!important;
+button.run-simulation {
+    background: #16c81d;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    width: 98%;
+    margin: 0px 0 20px 0;
+    font-size: 20px;
 }

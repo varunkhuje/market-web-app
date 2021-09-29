@@ -1,7 +1,29 @@
 <!-- <p>main works!</p>
 <button class="create-account" [routerLink]="['/simulator']">Simulator</button> -->
 <div class="container-fluid">
-    <div class="row pt-5">
+    <div class="row">
+        <div class="header-logo">
+            <img src="../../../assets/images/header_logo.jpg">
+        </div>
+        <div class="brand-dropdown">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        <select id="cars">
+          <option value="" style="display:none">Choose one provider</option>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="vw">VW</option>
+          <option value="audi" selected>Audi</option>
+        </select>
+      </div>
         <div class="col-lg-3 col-md-3">
             <button class="main-btn" (click)="showDiv.previous = true; showDiv.current = false;showDiv.next = false; showDiv.media = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> Growth <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
             <button class="main-btn" (click)="showDiv.current = true; showDiv.previous = false; showDiv.next = false; showDiv.media = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> Trade <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
@@ -99,25 +121,72 @@
 
             <div class="main-container" *ngIf="showDiv.media">
                 <div class="main-title">Media Digital</div>
-                    <form>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>City</mat-label>
-                            <input matInput placeholder="Ex. San Francisco">
-                            <mat-icon matSuffix>mode_edit</mat-icon>
-                          </mat-form-field>
-                          <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>City</mat-label>
-                            <input matInput placeholder="Ex. San Francisco">
-                            <mat-icon matSuffix>mode_edit</mat-icon>
-                          </mat-form-field>
-                          <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>City</mat-label>
-                            <input matInput placeholder="Ex. San Francisco">
-                            <mat-icon matSuffix>mode_edit</mat-icon>
-                          </mat-form-field>
-                    </form>
+                <form class="data-group">
+                    <div class="C-volume" style="width: 100%;">
+                        <span class="Vname">Media - Digital Spend Cap</span>
+                        <span class="Vdata">20%</span>
+                    </div>
+                      <div class="input-group">
+                        <label>Twitter </label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>DMS Network</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>Snalpchat</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>Programmatic</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>Facebook</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>Youtube</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>Instagram</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <label>Kooora.com</label>
+                        <input type="text" class="form-control" placeholder="12.6">
+                        <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                        </div>
+                      </div>
+                </form>
             </div>
+            <button class="run-simulation" [routerLink]="['/simulator']">Run Base Simulation</button>
         </div>
+        
     </div>
 </div>
 

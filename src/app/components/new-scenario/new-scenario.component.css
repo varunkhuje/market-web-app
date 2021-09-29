@@ -21,6 +21,7 @@
 }
 ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex{
     background: #fff!important;
+    padding: .75em .75em 0 .75em!important;
 }
 ::ng-deep.mat-select-panel{
     min-width: 390px!important;
