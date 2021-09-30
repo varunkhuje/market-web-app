@@ -1,0 +1,103 @@
+.container-fluid{
+    background-color: #efeeee;
+    height: 100vh;
+}
+.header-logo{
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+    padding: 7px;
+}
+.top-navbar{
+    padding: 26px 15px;
+    display: flex;
+}
+button.execution {
+    border: solid 1px #ccc;
+    padding: 5px 80px;
+    border-radius: 6px;
+    background: #fff;
+    margin: 0 20px;
+    color: #898686;
+}
+button.save-data{
+    border: solid 1px #0272d5;
+    padding: 5px 90px;
+    border-radius: 6px;
+    background: #0272d5;
+    margin: 0 20px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+}
+button.compare-data{
+    border: solid 1px #16c81d;
+    padding: 5px 70px;
+    border-radius: 6px;
+    background: #16c81d;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+}
+.mat-icon{
+    position: relative;
+    left: -10px;
+    font-size: 26px;
+}
+.brandVolume {
+    border: solid 1px #ccc;
+    height: 280px;
+    border-radius: 5px;
+    background: #1b2559;
+    display: flex;
+    padding: 0px 10px;
+}
+
+.portfolioVolume {
+    border: solid 1px #ccc;
+    height: 280px;
+    border-radius: 5px;
+    background: #000;
+    display: flex;
+    padding: 0px 10px;
+}
+.brand-graph {
+    width: 24%;
+    background: #18316c;
+    margin: 15px 7px;
+}
+
+.portfolio-graph {
+    width: 24%;
+    background: #18316c;
+    margin: 15px 7px;
+}
+
+.dropdown-item{
+    padding: 10px 10px;
+    border-bottom: solid 1px #ccc; 
+}
+.dropdown-item:hover{
+    background-color: #0272d5;
+    color: #fff;
+}
+.brand-logo img{
+    width: 40px;
+    padding-right: 13px;
+}
+.brand-nav{
+    border: solid 1px #dddcdc;
+    padding: 7px;
+    background: #fff;
+    width: 260px;
+    color: #999;
+    border-radius: 8px;
+}
+.dropdown-menu{
+    width: 260px;
+    padding: 0;
+}
+
+form input, form p, form button, form mat-slide-toggle  { margin:2%;}
+.trueClass  {background:lightpink; color:red;}
+.falseClass  {background:lightblue; color:red;}

@@ -23,6 +23,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatButtonToggleModule,
     MatButtonModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSlideToggleModule
     
   ],
   providers: [],
