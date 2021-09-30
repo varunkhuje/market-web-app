@@ -113,3 +113,26 @@ button.run-simulation {
     margin: 0px 0 20px 0;
     font-size: 20px;
 }
+.dropdown-item{
+    padding: 10px 10px;
+    border-bottom: solid 1px #ccc; 
+}
+.dropdown-item:hover{
+    background-color: #0272d5;
+    color: #fff;
+}
+.brand-logo img{
+    width: 40px;
+    padding-right: 13px;
+}
+.brand-nav{
+    border: solid 1px #dddcdc;
+    padding: 7px;
+    background: #fff;
+    width: 280px;
+    color: #999;
+    border-radius: 8px;
+}
+.dropdown-menu{
+    width: 260px;
+}

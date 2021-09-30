@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./simulator.component.css']
 })
 export class SimulatorComponent implements OnInit {
+  // isChecked = true;
+  // formGroup: FormGroup;
 
-  constructor() { }
+  model:any;
+  constructor(){
+    this.model = {name: '' , age: null, ifPrint: false};
+  }
+  formSubmit(){
+    console.log('form submit request');
+  }
 
   ngOnInit(): void {
   }
+  
 
 }

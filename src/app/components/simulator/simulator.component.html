@@ -1,1 +1,62 @@
-<p>simulator works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="header-logo">
+            <img src="../../../assets/images/header_logo.jpg">
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="top-navbar">
+                <div class="dropdown">
+                    <button class="btn brand-nav dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Brand
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/pepsi_icon.png">Pepsi</a>
+                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/lipton_icon.png">Lipton</a>
+                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/7up_icon.png">7Up</a>
+                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/pepsi_icon.png">Pepsi</a>
+                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/lipton_icon.png">Lipton</a>
+                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/7up_icon.png">7Up</a>
+                    </div>
+                </div>
+                    <button class="execution">Execution</button>
+                    <div class="dropdown">
+                        <button class="btn brand-nav dropdown-toggle" data-toggle="dropdown"> Select Channel</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                         <a class="dropdown-item" href="#">Media</a>
+                         <a class="dropdown-item" href="#">TV</a>
+                         <a class="dropdown-item" href="#">Digital</a>
+                    </div>
+                </div>
+                <button class="save-data"><mat-icon>save</mat-icon> Save</button>
+                <button class="compare-data"><mat-icon>remove_red_eye</mat-icon>Compare</button>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <!-- <mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle> -->
+            <!-- <div class="brandVolume">
+                <div class="brand-graph"></div>
+                <div class="brand-graph"></div>
+                <div class="brand-graph"></div>
+                <div class="brand-graph"></div>
+            </div>
+            <div class="portfolioVolume">
+                <div class="brand-graph">dfdfds</div>
+                <div class="brand-graph">dfd</div>
+                <div class="brand-graph">dfd</div>
+                <div class="brand-graph"></div>
+            </div> -->
+
+            <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
+                <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
+                    <div class="brand-graph"></div>
+                <div class="brand-graph"></div>
+                <div class="brand-graph"></div>
+                <div class="brand-graph"></div>
+                <mat-slide-toggle #ifPrint #age="ngModel" [(ngModel)]="model.ifPrint" name="ifPrint"></mat-slide-toggle> {{model.ifPrint}} <br/>
+                </div>
+              
+              </form>
+            
+        </div>
+    </div>
+</div>
