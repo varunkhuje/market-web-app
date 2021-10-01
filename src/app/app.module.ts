@@ -22,6 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatDialogModule} from '@angular/material/dialog';
+import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     NewScenarioComponent,
     ScenarioComponent,
     WelcomeComponent,
+    OpenDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,10 +52,14 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatButtonModule,
     MatTableModule,
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[OpenDialogComponent],
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

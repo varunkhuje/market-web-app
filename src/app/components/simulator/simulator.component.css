@@ -1,7 +1,7 @@
-.container-fluid{
+/* .container-fluid{
     background-color: #efeeee;
     height: 100vh;
-}
+} */
 .header-logo{
     background-color: #000;
     text-align: center;
@@ -63,14 +63,91 @@ button.compare-data{
 }
 .brand-graph {
     width: 24%;
-    background: #18316c;
+    /* background: #18316c; */
     margin: 15px 7px;
+}
+
+.portfolioVolume .brand-graph{
+    background: #121212;
+}
+.brandVolume .brand-graph{
+    background: #18316c;
 }
 
 .portfolio-graph {
     width: 24%;
     background: #18316c;
     margin: 15px 7px;
+}
+.toggle-flex{
+    display: flex;
+    margin: 10px 10px;
+}
+.toggle-portfolio {
+    margin: 0px 20px;
+}
+.toggle-brand {
+    margin: 0px 20px;
+}
+img.logo-brand {
+    width: 24px;
+}
+.DataTable{
+    width: 1333px;
+    overflow-x: scroll;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+table.simulator-table {
+    border: solid 1px #ccc;
+    width: 1500px;
+    overflow-x: scroll;
+    margin-bottom: 17px;
+}
+table.simulator-table td{
+    background: #e5e2e2;
+}
+.simulator-table thead, th{
+    background: #000;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+}
+.table-subtitle td{
+    font-size: 12px;
+    text-align: center;
+    padding: 0 17px;
+    border-right: solid 1px #e1dddd;
+}
+.t-data td{
+    border: solid 1px #ccc;
+    text-align: center;
+}
+td.flex-a span {
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 7px;
+    margin: 0 30px;
+}
+td.flex-a {
+    padding: 20px 0;
+}
+tr.table-subtitle td{
+    background: #f1f1f1!important;
+}
+.black{
+    background-color: #000;
+    color: #fff;
+}
+.white{
+    background-color: #fff;
+    color: #000;
+}
+.blue{
+    background-color: #0272d5;
+    color: #fff;
 }
 
 .dropdown-item{
@@ -98,6 +175,6 @@ button.compare-data{
     padding: 0;
 }
 
-form input, form p, form button, form mat-slide-toggle  { margin:2%;}
+/* form input, form p, form button, form mat-slide-toggle  { margin:2%;}
 .trueClass  {background:lightpink; color:red;}
-.falseClass  {background:lightblue; color:red;}
+.falseClass  {background:lightblue; color:red;} */
