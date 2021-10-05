@@ -287,6 +287,59 @@ table.media-tv-graph td{
     text-align: center;
     padding: 30px;
 }
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.left-top-filter {
+    width: 100px;
+    display: inline-flex;
+    position: relative;
+    left: -440px;
+}
+
+.left-top-filter .mat-icon{
+    color: #fff;
+    position: relative;
+    top: 0px;
+}
+
+.filter-cont {
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    height: 400px;
+    width: 300px;
+    background: #fff;
+    z-index: 333;
+    transition: all .8s ease-in-out;
+    transform-origin: left top;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.subfilter-tv {
+    position: absolute;
+    left: 300px;
+    z-index: 333;
+    height: 300px;
+    width: 280px;
+    background: #ccc;
+    top: 90px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.subfilter-media {
+    position: absolute;
+    left: 300px;
+    z-index: 333;
+    height: 300px;
+    width: 280px;
+    background: rgb(133, 131, 131);
+    top: 90px;
+}
   
   /* .stick:before {
     content: 'Row ';

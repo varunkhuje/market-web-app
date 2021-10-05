@@ -18,10 +18,28 @@ HighchartsSolidGauge(Highcharts);
 })
 export class SimulatorComponent implements OnInit {
 
+  showDiv = {
+    Mfilter : false,
+    current : false,
+    tvFilter : false,
+    media : false
+  }
+
+
   model:any;
   constructor(public dialog: MatDialog,){
       this.model = {name: null, ExeCution: false, Media: false,};
     }
+
+    title = 'appComponent';
+    
+  isShowDiv = true;
+   
+  toggleDisplayDiv() {
+    this.isShowDiv = !this.isShowDiv;
+  }
+
+
 
      
 //   data = [{
