@@ -59,13 +59,11 @@ import { OpenDialogComponent } from './components/open-dialog/open-dialog.compon
     MatTableModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-<<<<<<< HEAD
-    MatDialogModule
-=======
+    MatDialogModule,
     // HighchartsChartComponent
     HighchartsChartModule,
 
->>>>>>> 86fdd686cf95b8d33b794408dcc121ff1a922850
+
     
   ],
   providers: [],
