@@ -8,13 +8,46 @@
     width: 100%;
     padding: 7px;
 }
+button.select-list {
+    position: absolute;
+    left: 10px;
+    background: none;
+    color: #fff;
+    border: none;
+}
+.btn-home{
+    position: absolute;
+    left: 50px;
+    background: none;
+    color: #fff;
+    border: none;
+}
+.btn-home{
+
+}
 .top-navbar{
     padding: 26px 15px;
     display: flex;
 }
-button.execution {
+.navbar-button{
+    width: 200px;
+    margin: 0 10px;
+    padding: 0px 0px 9px 0px;
+    /* background: #f1f0f0; */
     border: solid 1px #ccc;
-    padding: 5px 80px;
+    border-radius: 6px;
+}
+.btn-green{
+    background-color: #16c81d;
+    color: #fff;
+}
+.btn-blue{
+    background-color: #0272d5;
+    color: #fff;
+}
+/* button.execution {
+    border: solid 1px #ccc;
+    padding: 5px 50px;
     border-radius: 6px;
     background: #fff;
     margin: 0 20px;
@@ -22,7 +55,7 @@ button.execution {
 }
 button.save-data{
     border: solid 1px #0272d5;
-    padding: 5px 90px;
+    padding: 5px 40px;
     border-radius: 6px;
     background: #0272d5;
     margin: 0 20px;
@@ -32,17 +65,19 @@ button.save-data{
 }
 button.compare-data{
     border: solid 1px #16c81d;
-    padding: 5px 70px;
+    padding: 5px 40px;
     border-radius: 6px;
     background: #16c81d;
     color: #fff;
     display: flex;
     font-size: 18px;
-}
+    margin-right: 20px;
+} */
 .mat-icon{
     position: relative;
     left: -10px;
     font-size: 26px;
+    top: 8px;
 }
 .brandVolume {
     border: solid 1px #ccc;
@@ -66,13 +101,25 @@ button.compare-data{
     /* background: #18316c; */
     margin: 15px 7px;
 }
-
 .portfolioVolume .brand-graph{
     background: #121212;
 }
 .brandVolume .brand-graph{
     background: #18316c;
 }
+.mediatv-graph{
+    background: rgb(189, 98, 14);
+    height: 300px;
+}
+
+.mediatv-table{
+    background:#ededed;
+    margin-bottom: 30px;
+}
+/* table.media-tv tr td {
+    padding: 20px 10px;
+} */
+
 
 .portfolio-graph {
     width: 24%;
@@ -92,8 +139,8 @@ button.compare-data{
 img.logo-brand {
     width: 24px;
 }
-.DataTable{
-    width: 1333px;
+.execution-data{
+    width: 1318px;
     overflow-x: scroll;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -103,6 +150,7 @@ table.simulator-table {
     width: 1500px;
     overflow-x: scroll;
     margin-bottom: 17px;
+    margin-left: 35px;
 }
 table.simulator-table td{
     background: #e5e2e2;
@@ -123,15 +171,21 @@ table.simulator-table td{
 .t-data td{
     border: solid 1px #ccc;
     text-align: center;
+    border-right: solid 2px #000;
 }
-td.flex-a span {
-    width: 150px;
-    height: 50px;
-    padding: 10px;
+td.border-r {
+    border-right: solid 2px #000!important;
+}
+td.flex-a div {
+    width: 50px;
+    height: 43px;
+    padding: 10px 8px;
     border-radius: 7px;
-    margin: 0 30px;
+    margin: 0 23px;
+    display: inline-block;
 }
-td.flex-a {
+
+.flex-a {
     padding: 20px 0;
 }
 tr.table-subtitle td{
@@ -144,6 +198,13 @@ tr.table-subtitle td{
 .white{
     background-color: #fff;
     color: #000;
+    border: solid 1px #ccc;
+}
+
+.gray{
+    background-color: #a4a4a4;
+    color: #fff;
+
 }
 .blue{
     background-color: #0272d5;
@@ -164,9 +225,9 @@ tr.table-subtitle td{
 }
 .brand-nav{
     border: solid 1px #dddcdc;
-    padding: 7px;
+    padding: 9px;
     background: #fff;
-    width: 260px;
+    width: 210px;
     color: #999;
     border-radius: 8px;
 }
@@ -174,6 +235,62 @@ tr.table-subtitle td{
     width: 260px;
     padding: 0;
 }
+.pp table th{
+    padding: 10px;
+    height: 60px;
+}
+table.media-tv {
+    width: 1319px;
+}
+td.flex-align{
+    padding: 20px;
+}
+td.flex-align div{
+    width: 50px;
+    height: 43px;
+    padding: 10px 8px;
+    border-radius: 7px;
+    margin: 0 5px;
+    text-align: center;
+    display: inline-block;
+}
+td.flex-align.width{
+    width: 220px;
+}
+
+  .stick {
+    position: absolute;
+    width: 40px;
+    margin-right: 20px;
+    left: 15px;
+    top: auto;
+    border-top-width: 1px;
+    height: 87px;
+    font-size: 16px!important;
+    font-weight: 500;
+    /*only relevant for first row*/
+    /* margin-top: -1px; */
+    /*compensate for top border*/
+  }
+
+  .toggle-flex.media-toggle {
+    position: relative;
+    right: -1204px;
+    z-index: 1;
+    top: 100px;
+    width: 100px;
+}
+table.media-tv-graph {
+    width: 1319px;
+}
+table.media-tv-graph td{
+    text-align: center;
+    padding: 30px;
+}
+  
+  /* .stick:before {
+    content: 'Row ';
+  } */
 
 /* form input, form p, form button, form mat-slide-toggle  { margin:2%;}
 .trueClass  {background:lightpink; color:red;}

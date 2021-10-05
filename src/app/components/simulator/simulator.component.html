@@ -2,6 +2,12 @@
     <div class="row">
         <div class="header-logo">
             <img src="../../../assets/images/header_logo.jpg">
+            <button class="select-list">
+              <mat-icon> dialpad</mat-icon>
+            </button>
+            <button class="btn-home">
+              <mat-icon>home</mat-icon>
+            </button>
         </div>
         <div class="col-lg-12 col-md-12">
             <div class="top-navbar">
@@ -18,7 +24,7 @@
                     <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/7up_icon.png">7Up</a>
                     </div>
                 </div>
-                    <button class="execution">Execution</button>
+                    <button class="navbar-button btn-blue"><mat-icon>settings</mat-icon>Execution</button>
                     <div class="dropdown">
                         <button class="btn brand-nav dropdown-toggle" data-toggle="dropdown"> Select Channel</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -27,8 +33,9 @@
                          <a class="dropdown-item" href="#">Digital</a>
                     </div>
                 </div>
-                <button (click)="open()" class="save-data"><mat-icon>save</mat-icon> Save Scenario</button>
-                <button class="compare-data"><mat-icon>remove_red_eye</mat-icon>Compare & Complete</button>
+                <button (click)="open()" class="navbar-button btn-blue"><mat-icon>save</mat-icon> Save Scenario</button>
+                <button (click)="open()" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button>
+                <button class="navbar-button btn-green"><mat-icon>check</mat-icon>Complete</button>
             </div>
         </div>
         <div class="col-lg-12 col-md-12">
@@ -49,14 +56,14 @@
             <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
                 <div class="toggle-flex">
                 <div class="toggle-portfolio">Portfolio</div>
-                <mat-slide-toggle #ifPrint #age="ngModel" [(ngModel)]="model.ifPrint" name="ifPrint"></mat-slide-toggle> 
+                <mat-slide-toggle #ExeCution  [(ngModel)]="model.ExeCution" name="ExeCution"></mat-slide-toggle> 
                 <!-- {{model.ifPrint}} --> <div class="toggle-brand">Brand <img class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
-                <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
+                <div [ngClass]="model.ExeCution === true ? 'brandVolume' : 'portfolioVolume'">
                     <div class="brand-graph">
                         <highcharts-chart
                         [Highcharts] = "Highcharts" 
                         [options] = "chartOptions" 
-                        style = "width: 100%; height: 400px; display: block;">
+                        style = "width: 100%; height: 300px; display: block; position: relative; right: 20px;">
                      </highcharts-chart>
                     </div>
                 <div class="brand-graph"></div>
@@ -64,11 +71,12 @@
                 <div class="brand-graph"></div>
                 </div>
               </form>
-              <div class="DataTable">
+              <!-- Execution Data start from here -->
+              <div class="execution-data" style="display: block;">
               <table class="simulator-table">
                 <thead>
                   <tr>
-                    <th>PP</th>
+                    <th class="stick">PP</th>
                     <th colspan="3">Grammage</th>
                     <th colspan="3">Distribution (TDP Share)</th>
                     <th colspan="3">Distribution (ND)</th>
@@ -78,49 +86,108 @@
                 </thead>
                 <tbody>
                   <tr class="table-subtitle">
-                    <td>1</td>
+                    <td class="stick pt-3 border-r">1</td>
                     <td>Current Pack Level Standings</td>
-                    <td>Recommendations</td>
-                    <td>Try your Scenario</td>
+                    <td>Recommenda tions</td>
+                    <td class="border-r">Try your Scenario</td>
                     <td>Current Pack Level Standings</td>
-                    <td>Recommendations</td>
-                    <td>Try your Scenario</td>
+                    <td>Recommenda tions</td>
+                    <td class="border-r">Try your Scenario</td>
                     <td>Current Pack Level Standings</td>
-                    <td>Recommendations</td>
-                    <td>Try your Scenario</td>
+                    <td>Recommenda tions</td>
+                    <td class="border-r">Try your Scenario</td>
                     <td>Current Pack Level Standings</td>
-                    <td>Recommendations</td>
-                    <td>Try your Scenario</td>
+                    <td>Recommenda tions</td>
+                    <td class="border-r">Try your Scenario</td>
                     <td>Current Pack Level Standings</td>
-                    <td>Recommendations</td>
-                    <td>Try your Scenario</td>
+                    <td>Recommendat ions</td>
+                    <td class="border-r">Try your Scenario</td>
                   </tr>
                   <tr class="t-data">
-                    <td>0.5</td>
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
+                    <td class="stick pt-3">0.5</td>
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
                   </tr>
                   <tr class="t-data">
-                    <td>1</td>
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
+                    <td class="stick pt-3">1</td>
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
                   </tr>
                   <tr class="t-data">
-                    <td>3</td>
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
-                    <td class="flex-a" colspan="3"><span class="black">3.6</span> <span class="blue">3.6</span> <span class="white">3.6</span></td> 
+                    <td class="stick pt-3">3</td>
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
+                    <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <!-- Media Data start from here -->
+            <div class="media-data">
+              <div class="toggle-flex media-toggle">
+                <!-- <div class="toggle-portfolio">Portfolio</div> -->
+                <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media"></mat-slide-toggle> 
+              </div>
+                <div [ngClass]="model.Media === true ? 'mediatv-graph' : 'mediatv-table'"> 
+                    <table class="media-tv">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>TV Spend</th>
+                          <th>TV GRP</th>
+                          <th>TV VOL Contribution</th>
+                          <th>TV ROI</th>
+                          <th style="width: 250px;"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="flex-align">Total</td>
+                          <td class="flex-align"><div class="black">2.27</div> <div class="blue">3.6</div> <div class="gray">3.6</div></td>
+                          <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
+                          <td class="flex-align width"></td>
+                          <td class="flex-align width"></td>
+                        </tr>
+                        <tr>
+                          <td class="flex-align">Sports Bein</td>
+                          <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
+                          <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
+                          <td class="flex-align width"></td>
+                          <td class="flex-align width"></td>
+                        </tr>
+                        <tr>
+                          <td class="flex-align">Sports Non Bein</td>
+                          <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
+                          <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="gray">3.6</div></td>
+                          <td class="flex-align width"></td>
+                          <td class="flex-align width"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="media-tv-graph">
+                      <thead>
+                        <tr>
+                          <th>Digital Spend</th>
+                          <th>Digital GRP</th>
+                          <th style="width: 350px;"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><img src="../../../assets/images/chart.jpg"></td>
+                          <td><img src="../../../assets/images/chart.jpg"></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
             </div>
         </div>
     </div>
