@@ -19,9 +19,23 @@ HighchartsSolidGauge(Highcharts);
 export class SimulatorComponent implements OnInit {
 
   model:any;
+  execution: any = false;
+  media:any = false;
   constructor(public dialog: MatDialog,){
       this.model = {name: null, ExeCution: false, Media: false,};
-    }
+  }
+
+  onExecution(){
+    this.execution = true;
+    this.media = false;
+
+  }
+
+  showMedia(){
+    this.media = true;
+    this.execution = false;
+
+  }
 
      
 
@@ -35,7 +49,7 @@ export class SimulatorComponent implements OnInit {
     },
     credits: {enabled: false},
     title: {
-        text: 'No format',
+        text: '',
         y: 250,
         style: {'font-family': 'Muli, Helvetica Neue, Arial, sans-serif', 'font-size': '36px'}
     },
