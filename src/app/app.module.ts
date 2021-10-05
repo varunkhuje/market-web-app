@@ -63,7 +63,6 @@ import { OpenDialogComponent } from './components/open-dialog/open-dialog.compon
     // HighchartsChartComponent
     HighchartsChartModule,
 
-
     
   ],
   providers: [],

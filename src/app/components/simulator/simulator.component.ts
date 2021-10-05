@@ -20,7 +20,7 @@ export class SimulatorComponent implements OnInit {
 
   model:any;
   constructor(public dialog: MatDialog,){
-      this.model = {name: '' , age: null, ifPrint: false};
+      this.model = {name: null, ExeCution: false, Media: false,};
     }
 
      
