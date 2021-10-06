@@ -299,7 +299,7 @@ table.media-tv-graph td{
     left: -440px;
 }
 
-.left-top-filter .mat-icon{
+ .dialpad{
     color: #fff;
     position: relative;
     top: 0px;
@@ -307,39 +307,147 @@ table.media-tv-graph td{
 
 .filter-cont {
     position: absolute;
-    left: 0px;
+    padding: 5px 15px;
+    left: 4px;
     top: 60px;
-    height: 400px;
-    width: 300px;
+    width: 320px;
     background: #fff;
     z-index: 333;
-    transition: all .8s ease-in-out;
-    transform-origin: left top;
     border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-bottom: solid 5px #0272d5;
 }
-
-
 .subfilter-tv {
     position: absolute;
     left: 300px;
     z-index: 333;
-    height: 300px;
-    width: 280px;
-    background: #ccc;
-    top: 90px;
+    padding: 10px 10px;
+    width: 250px;
+    background: #fff;
+    top: 140px;
+    border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-bottom: solid 5px #0272d5;
+}
+.g-input.sub-track {
+    width: 100%;
+}
+.cost-grp{
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    padding: 5px 10px;
+}
+
+button.close-btn {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: #999;
 }
 
 .subfilter-media {
     position: absolute;
     left: 300px;
     z-index: 333;
-    height: 300px;
-    width: 280px;
-    background: rgb(133, 131, 131);
-    top: 90px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 450px;
+    background: #fff;
+    top: 140px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-bottom: solid 5px #0272d5;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.filter-title {
+    text-align: left;
+    padding: 0px 18px;
+    color: #0272d5;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 13px;
+}
+.filter-title img{
+    padding-right: 10px;
+}
+.growth-sec{
+   display: flex;
+   border-bottom: solid 1px #ccc;
+    padding-bottom: 0px;
+}
+.g-input, .g-volume {
+    width: 49%;
+    margin: 12px 0px;
+    padding: 0 10px;
+    text-align: left;
+}
+.g-input label{
+    font-size: 15px;
+    font-weight: 500;
+}
+span.input-align {
+    position: relative;
+    left: -7px;
+}
+input.input-append {
+    width: 100%;
+}
+span.Vname{
+    float: left;
+    font-size: 15px;
+    font-weight: 500;
+    padding-top: 1px;
+    width: 100%;
+}
+span.Vdata {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 50px;
+}
+.subside-filter {
+    display: inline;
+    position: absolute;
+    left: 295px;
+    color: #000;
+    cursor: pointer;
+}
+.play-arrow{
+    font-size: 19px;
+    color: #444;
+}
+span.Vname.Mwidth{
+    width:200px;
+}
+.g-input.mb-1 {
+    margin-bottom: -8px!important;
+}
+button.backto-input {
+    background: #0272d5;
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: 3px 7px 10px 7px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+.arrow-ios{
+    position: relative;
+    left: -70px;
+}
+button.insert-comment {
+    position: relative;
+    right: -430px;
+    background: none;
+    border: none;
+    color: #fff;
+}
+
   
   /* .stick:before {
     content: 'Row ';

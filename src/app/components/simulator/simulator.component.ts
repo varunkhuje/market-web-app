@@ -22,7 +22,7 @@ export class SimulatorComponent implements OnInit {
     Mfilter : false,
     current : false,
     tvFilter : false,
-    media : false
+    MediaFilter : false
   }
 
 

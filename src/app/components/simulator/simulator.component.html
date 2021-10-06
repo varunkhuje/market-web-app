@@ -2,24 +2,201 @@
     <div class="row">
         <div class="header-logo">
           <div class="left-top-filter">
-            <div class="btn btn-dark"
-					(click)="showDiv.Mfilter = !showDiv.Mfilter;">
-          <mat-icon> dialpad</mat-icon>
+            <div class="btn"
+					(click)="showDiv.Mfilter = !showDiv.Mfilter;showDiv.MediaFilter = false;showDiv.tvFilter = false;">
+          <mat-icon class="dialpad"> view_headline</mat-icon>
 				</div>
-        <div class="filter-cont" *ngIf="showDiv.Mfilter">Previous week datay.
-          <div class="btn btn-dark"
-					(click)="showDiv.tvFilter = !showDiv.tvFilter;">
-					tv
+        <!-- Top Filter start from here -->
+        <div class="filter-cont" *ngIf="showDiv.Mfilter">
+          <div class="filter-title">
+            <img src="../../../assets/images/filter_icon.jpg"> <span>Growth</span>
+          </div>
+            <div class="growth-sec">
+              <div class="g-input">
+                <label>Growth Ambition</label>
+              
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+              <div class="g-volume">
+                <span class="Vname">Current Volume</span>
+              <span class="Vdata">18.67M</span>
+              </div>
+            </div>
+            <div class="filter-title">
+              <img src="../../../assets/images/filter_icon.jpg"> <span>Trade</span>
+            </div>
+            <div class="growth-sec">
+              <div class="g-input">
+                <label>Max Trade</label>              
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+              <div class="g-volume">
+                <span class="Vname">Current DA</span>
+              <span class="Vdata">12.6%</span>
+              </div>
+            </div>
+            <div class="filter-title">
+              <img src="../../../assets/images/filter_icon.jpg"> <span>TV</span>
+              <div class="subside-filter"
+					(click)="showDiv.tvFilter = !showDiv.tvFilter;showDiv.MediaFilter = false;">
+					<mat-icon class="play-arrow">play_arrow</mat-icon>
 				</div>
+            </div>
+            <div class="growth-sec">
+              <div class="g-input">
+                <label>WOA</label>
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+              <div class="g-input">
+                <label>WOA</label>
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+            </div>
+            <div class="filter-title">
+                <img src="../../../assets/images/filter_icon.jpg"> <span>Media</span>
+                <div class="subside-filter"
+                    (click)="showDiv.MediaFilter = !showDiv.MediaFilter;showDiv.tvFilter = false;"><mat-icon class="play-arrow">play_arrow</mat-icon>
+                </div>
+            </div>
+            <div class="growth-sec">
+              <div class="g-volume">
+                <span class="Vname Mwidth ">Media Digital Spend Cap</span>
+              <span class="Vdata">20%</span>
+              </div>
+              <div class="g-input">
+              </div>
+            </div>
+            <button class="backto-input"><mat-icon class="arrow-ios">arrow_back_ios</mat-icon> Back to Input</button>
         </div>
-        <div class="subfilter-tv" *ngIf="showDiv.tvFilter">TV Data</div>
+        <!-- top sub filter TV start from here -->
+        <div class="subfilter-tv" *ngIf="showDiv.tvFilter">
+          <button (click)="showDiv.tvFilter = !showDiv.tvFilter;" class="close-btn"><mat-icon>close</mat-icon></button>
+          <div class="cost-grp">Cost Per GRP</div>
+          <div class="g-input sub-track">
+            <label>Sports Bein</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Sports Non Bein</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Fiction</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Entertainment</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Information amd Magazine</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+        </div>
+        <!-- top sub filter Media start from here -->
+        <div class="subfilter-media" *ngIf="showDiv.MediaFilter">
+          <button (click)="showDiv.MediaFilter = !showDiv.MediaFilter;" class="close-btn"><mat-icon>close</mat-icon></button>
+          <div class="cost-grp">Cost Per GRP</div>
+          <div class="growth-sec" style="border: none; width: 100%;">
+            <div class="g-volume">
+              <span class="Vname Mwidth ">Media Digital Spend Cap</span>
+            <span class="Vdata">20%</span>
+            </div>
+            <div class="g-input">
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Twitter</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Programmatic</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>DMS Network</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Facebook</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Snapchat</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Instrgram</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input">
+            <label>Youtube</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input">
+            <label>kooora.com</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+        </div>
         </div>
               <img src="../../../assets/images/header_logo.jpg">
-              <!-- <button class="select-list">
-                <mat-icon> dialpad</mat-icon>
-              </button> -->
+             <button class="insert-comment">
+              <mat-icon> insert_comment</mat-icon>
+              </button>  
+
             
-        </div>
+        </div> 
         <div class="col-lg-12 col-md-12">
             <div class="top-navbar">
                 <div class="dropdown">
