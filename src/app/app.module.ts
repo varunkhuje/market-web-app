@@ -29,6 +29,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { OpenDialogComponent } from './components/open-dialog/open-dialog.compon
     MatDialogModule,
     // HighchartsChartComponent
     HighchartsChartModule,
+    MatMenuModule,
 
     
   ],
