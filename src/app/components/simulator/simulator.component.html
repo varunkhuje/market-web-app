@@ -151,13 +151,14 @@
             <div class="media-data"  *ngIf="media">
               <div class="toggle-flex media-toggle">
                 <!-- <div class="toggle-portfolio">Portfolio</div> -->
-                <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media"></mat-slide-toggle> 
+                <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media">{{model.Media}}</mat-slide-toggle> 
               </div>
-                <div [ngClass]="model.Media === true ? 'mediatv-graph' : 'mediatv-table'"> 
-                    <table class="media-tv" >
+                <div > 
+                    <table class="media-tv" *ngIf="model.Media">
                       <thead>
                         <tr>
                           <th></th>
+                          <th>Effectiveness</th>
                           <th>TV Spend</th>
                           <th>TV GRP</th>
                           <th>TV VOL Contribution</th>
@@ -166,8 +167,10 @@
                         </tr>
                       </thead>
                       <tbody>
+                        
                         <tr>
                           <td class="flex-align">Total</td>
+                          <td class="flex-align"><div class="black">2.27</div></td>
                           <td class="flex-align"><div class="black">2.27</div> <div class="blue">3.6</div> <div class="gray">3.6</div></td>
                           <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
                           <td class="flex-align width"></td>
@@ -175,6 +178,7 @@
                         </tr>
                         <tr>
                           <td class="flex-align">Sports Bein</td>
+                          <td class="flex-align"><div class="black">2.27</div></td>
                           <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
                           <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
                           <td class="flex-align width"></td>
@@ -182,6 +186,7 @@
                         </tr>
                         <tr>
                           <td class="flex-align">Sports Non Bein</td>
+                          <td class="flex-align"><div class="black">2.27</div></td>
                           <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td>
                           <td class="flex-align"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="gray">3.6</div></td>
                           <td class="flex-align width"></td>
@@ -189,7 +194,7 @@
                         </tr>
                       </tbody>
                     </table>
-                    <table class="media-tv-graph">
+                    <table class="media-tv-graph" *ngIf="!model.Media">
                       <thead>
                         <tr>
                           <th>Digital Spend</th>
