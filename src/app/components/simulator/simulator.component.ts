@@ -29,6 +29,9 @@ export class SimulatorComponent implements OnInit {
   model:any;
   execution: any = false;
   media:any = false;
+  media_graph: any = false;
+  media_table: any = false;
+
   constructor(public dialog: MatDialog,){
       this.model = {name: null, ExeCution: false, Media: false,};
   }
@@ -146,7 +149,7 @@ export class SimulatorComponent implements OnInit {
           }
       },
       xAxis: {
-          categories: ['Current', 'New'],
+          categories: ['Current', 'Recommended', 'New'],
           labels: {
             style: {
               color: 'white'
@@ -171,7 +174,7 @@ export class SimulatorComponent implements OnInit {
       },
       series: [{
           name: 'Digital',
-          data: [2, 2],
+          data: [2, 2, 2],
           labels: {
             style: {
               color: 'white'
@@ -179,7 +182,7 @@ export class SimulatorComponent implements OnInit {
           }
       }, {
           name: 'TV',
-          data: [4.5, 1]
+          data: [4.5, 1, 2.5]
       }]
     };
 
@@ -200,7 +203,7 @@ export class SimulatorComponent implements OnInit {
           }
       },
       xAxis: {
-          categories: ['Current', 'New'],
+          categories: ['Current', 'Recommended','New'],
           labels: {
             style: {
               color: 'white'
@@ -225,10 +228,10 @@ export class SimulatorComponent implements OnInit {
       },
       series: [{
           name: 'Digital',
-          data: [2, 2]
+          data: [2, 2, 2]
       }, {
           name: 'TV',
-          data: [4.5, 1]
+          data: [4.5, 1, 2.5]
       }]
     };
 
