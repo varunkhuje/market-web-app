@@ -194,12 +194,58 @@
              <button class="insert-comment">
               <mat-icon> insert_comment</mat-icon>
               </button>  
-
-            
         </div> 
         <div class="col-lg-12 col-md-12">
             <div class="top-navbar">
-                <div class="dropdown">
+              <mat-form-field>
+                <mat-select placeholder="Brand">
+                  <mat-select-trigger>
+                    <img class="logo-icon" src="../../../assets/images/pepsi_icon.png"> Pepsi
+                  </mat-select-trigger>
+                  <mat-option value="option">
+                    <img class="logo-icon" src="../../../assets/images/lipton_icon.png"> Liption
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/7up_icon.png"> 7UP
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/pepsi_icon.png"> Pepsi
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/lipton_icon.png"> Liption
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/pepsi_icon.png"> Pepsi
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/7up_icon.png"> 7UP
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select placeholder="Execution">
+                  <mat-option value="option" (click)="onExecution()">
+                    Execution - 1
+                  </mat-option>
+                  <mat-option value="option" (click)="onExecution()">
+                    Execution - 2
+                  </mat-option>
+                  <mat-option value="option" (click)="onExecution()">
+                    Execution - 3
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select placeholder="Media">
+                  <mat-option value="option" (click)="showMedia()">
+                   TV
+                  </mat-option>
+                  <mat-option value="option">
+                   Digital
+                   </mat-option>
+                </mat-select>
+              </mat-form-field>
+                <!-- <div class="dropdown">
                     <button class="btn brand-nav dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Brand
                     </button>
@@ -211,17 +257,26 @@
                     <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/lipton_icon.png">Lipton</a>
                     <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/7up_icon.png">7Up</a>
                     </div>
-                </div>
-                    <button class="navbar-button" (click)=onExecution()><mat-icon>settings</mat-icon>Execution</button>
-                    <div class="dropdown">
+                </div> -->
+                    <!-- <button class="navbar-button" (click)=onExecution()><mat-icon>settings</mat-icon>Execution</button> -->
+                    <!-- <div class="dropdown">
                         <button class="btn brand-nav dropdown-toggle" data-toggle="dropdown"> Media</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                          <a class="dropdown-item" (click)="showMedia()">TV</a>
                          <a class="dropdown-item" href="#">Digital</a>
                     </div>
-                </div>
+                </div> -->
+                <!-- <mat-form-field appearance="fill">
+                  <mat-label>Favorite food</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{food.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+                
                 <button (click)="open()" class="navbar-button btn-blue"><mat-icon>save</mat-icon> Save Scenario</button>
-                <button (click)="open()" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button>
+                <button [routerLink]="['/compare']" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button>
                 <button class="navbar-button btn-green"><mat-icon>check</mat-icon>Complete</button>
             </div>
         </div>
@@ -239,7 +294,13 @@
                 <div class="brand-graph">dfd</div>
                 <div class="brand-graph"></div>
             </div> -->
-
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Home</li>
+                <!-- <li class="breadcrumb-item">Library</li> -->
+                <li class="breadcrumb-item active" aria-current="page">simulator</li>
+              </ol>
+            </nav>
             <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
                 <div class="toggle-flex">
                 <div class="toggle-portfolio">Portfolio</div>
@@ -351,7 +412,7 @@
                           <th>TV GRP</th>
                           <th>TV VOL Contribution</th>
                           <th>TV ROI</th>
-                          <th style="width: 250px;"></th>
+                          <th style="width: 150px;"></th>
                         </tr>
                       </thead>
                       <tbody>

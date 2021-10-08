@@ -31,6 +31,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { AlertBoxComponent } from './components/alert-box/alert-box.component';
+import { CompareComponent } from './components/compare/compare.component';
+import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { AlertBoxComponent } from './components/alert-box/alert-box.component';
     WelcomeComponent,
     OpenDialogComponent,
     AlertBoxComponent,
+    CompareComponent,
+    TopNavigationComponent,
   ],
   imports: [
     BrowserModule,

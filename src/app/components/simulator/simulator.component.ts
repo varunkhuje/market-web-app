@@ -10,7 +10,6 @@ HighchartsSolidGauge(Highcharts);
 // import { Chart } from 'angular-highcharts';
 
 
-
 @Component({
   selector: 'app-simulator',
   templateUrl: './simulator.component.html',
@@ -25,7 +24,7 @@ export class SimulatorComponent implements OnInit {
     MediaFilter : false
   }
 
-
+  
   model:any;
   execution: any = false;
   media:any = false;
