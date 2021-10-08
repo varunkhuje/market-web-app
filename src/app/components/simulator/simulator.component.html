@@ -194,6 +194,28 @@
              <button class="insert-comment">
               <mat-icon> insert_comment</mat-icon>
               </button>  
+              <div class="user-dropdown">
+                <img class="user-icon" src="../../../assets/images/user.png"> <span>User Name</span>
+              <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voice mail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+              </mat-menu>
+            </div>
+
+
         </div> 
         <div class="col-lg-12 col-md-12">
             <div class="top-navbar">
@@ -245,55 +267,12 @@
                    </mat-option>
                 </mat-select>
               </mat-form-field>
-                <!-- <div class="dropdown">
-                    <button class="btn brand-nav dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Brand
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/pepsi_icon.png">Pepsi</a>
-                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/lipton_icon.png">Lipton</a>
-                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/7up_icon.png">7Up</a>
-                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/pepsi_icon.png">Pepsi</a>
-                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/lipton_icon.png">Lipton</a>
-                    <a class="dropdown-item brand-logo" href="#"><img src="../../../assets/images/7up_icon.png">7Up</a>
-                    </div>
-                </div> -->
-                    <!-- <button class="navbar-button" (click)=onExecution()><mat-icon>settings</mat-icon>Execution</button> -->
-                    <!-- <div class="dropdown">
-                        <button class="btn brand-nav dropdown-toggle" data-toggle="dropdown"> Media</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                         <a class="dropdown-item" (click)="showMedia()">TV</a>
-                         <a class="dropdown-item" href="#">Digital</a>
-                    </div>
-                </div> -->
-                <!-- <mat-form-field appearance="fill">
-                  <mat-label>Favorite food</mat-label>
-                  <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                      {{food.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field> -->
-                
                 <button (click)="open()" class="navbar-button btn-blue"><mat-icon>save</mat-icon> Save Scenario</button>
                 <button [routerLink]="['/compare']" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button>
                 <button class="navbar-button btn-green"><mat-icon>check</mat-icon>Complete</button>
             </div>
         </div>
         <div class="col-lg-12 col-md-12">
-            <!-- <mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle> -->
-            <!-- <div class="brandVolume">
-                <div class="brand-graph"></div>
-                <div class="brand-graph"></div>
-                <div class="brand-graph"></div>
-                <div class="brand-graph"></div>
-            </div>
-            <div class="portfolioVolume">
-                <div class="brand-graph">dfdfds</div>
-                <div class="brand-graph">dfd</div>
-                <div class="brand-graph">dfd</div>
-                <div class="brand-graph"></div>
-            </div> -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
@@ -338,8 +317,177 @@
                 </div>
               </form>
               <!-- Execution Data start from here -->
-              <div class="execution-data"  *ngIf="execution" style="display: block;">
-              <table class="simulator-table">
+              <div class="execution-data" *ngIf="execution">
+                <div class="left-input">
+                  <div class="input-pp mt-a">PP</div>
+                  <div class="input-pp mt-b">0.5</div>
+                  <div class="input-pp mt-c">1</div>
+                  <div class="input-pp mt-d">3</div>
+                </div>
+                <!-- Grammage Table -->
+                  <div id="Grammage" class="simulator">
+                      <table class="simulator-data">
+                          <thead>
+                            <tr>
+                              <th colspan="3">Grammage</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                            <tr class="sub-head">
+                              <td>Current Pack Level Standings</td>
+                              <td>Recommenda tions</td>
+                              <td class="border-r">Try your Scenario</td>
+                            </tr>
+                            <tr class="t-data">
+                              <td class="flex-a"><div class="black">3.6</div> </td> 
+                              <td class="flex-a"><div class="blue">3.6</div> </td> 
+                              <td class="flex-a"><div class="white">3.6</div></td> 
+                            </tr>
+                            <tr class="t-data">
+                              <td class="flex-a"><div class="black">3.6</div> </td> 
+                              <td class="flex-a"><div class="blue">3.6</div> </td> 
+                              <td class="flex-a"><div class="white">3.6</div></td> 
+                            </tr>
+                            <tr class="t-data">
+                              <td class="flex-a"><div class="black">3.6</div> </td> 
+                              <td class="flex-a"><div class="blue">3.6</div> </td> 
+                              <td class="flex-a"><div class="white">3.6</div></td> 
+                            </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                  <!-- Distribution TDP Table -->
+                  <div id="DistributionTDP" class="simulator">
+                    <table class="simulator-data">
+                        <thead>
+                          <tr>
+                            <th colspan="3">Distribution (TDP Share)</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                          <tr class="sub-head">
+                            <td>Current Pack Level Standings</td>
+                            <td>Recommenda tions</td>
+                            <td class="border-r">Try your Scenario</td>
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                      </tbody>
+                    </table>
+                </div>
+                <!-- Distribution ND Table -->
+                <div id="DistributionND" class="simulator">
+                  <table class="simulator-data">
+                      <thead>
+                        <tr>
+                          <th colspan="3">Distribution (ND)</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr class="sub-head">
+                          <td>Current Pack Level Standings</td>
+                          <td>Recommenda tions</td>
+                          <td class="border-r">Try your Scenario</td>
+                        </tr>
+                        <tr class="t-data">
+                          <td class="flex-a"><div class="black">3.6</div> </td> 
+                          <td class="flex-a"><div class="blue">3.6</div> </td> 
+                          <td class="flex-a"><div class="white">3.6</div></td> 
+                        </tr>
+                        <tr class="t-data">
+                          <td class="flex-a"><div class="black">3.6</div> </td> 
+                          <td class="flex-a"><div class="blue">3.6</div> </td> 
+                          <td class="flex-a"><div class="white">3.6</div></td> 
+                        </tr>
+                        <tr class="t-data">
+                          <td class="flex-a"><div class="black">3.6</div> </td> 
+                          <td class="flex-a"><div class="blue">3.6</div> </td> 
+                          <td class="flex-a"><div class="white">3.6</div></td> 
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <!-- Distribution PackMix Table -->
+              <div id="PackMix" class="simulator">
+                <table class="simulator-data">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Pack Mix</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                      <tr class="sub-head">
+                        <td>Current Pack Level Standings</td>
+                        <td>Recommenda tions</td>
+                        <td class="border-r">Try your Scenario</td>
+                      </tr>
+                      <tr class="t-data">
+                        <td class="flex-a"><div class="black">3.6</div> </td> 
+                        <td class="flex-a"><div class="blue">3.6</div> </td> 
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="flex-a"><div class="black">3.6</div> </td> 
+                        <td class="flex-a"><div class="blue">3.6</div> </td> 
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="flex-a"><div class="black">3.6</div> </td> 
+                        <td class="flex-a"><div class="blue">3.6</div> </td> 
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+       
+      <!-- Distribution D&A Table-->
+      <div id="DA" class="simulator">
+        <table class="simulator-data">
+            <thead>
+              <tr>
+                <th colspan="3">D&A</th>
+              </tr>
+            </thead>
+          <tbody>
+              <tr class="sub-head">
+                <td>Current Pack Level Standings</td>
+                <td>Recommenda tions</td>
+                <td class="border-r">Try your Scenario</td>
+              </tr>
+              <tr class="t-data">
+                <td class="flex-a"><div class="black">3.6</div> </td> 
+                <td class="flex-a"><div class="blue">3.6</div> </td> 
+                <td class="flex-a"><div class="white">3.6</div></td> 
+              </tr>
+              <tr class="t-data">
+                <td class="flex-a"><div class="black">3.6</div> </td> 
+                <td class="flex-a"><div class="blue">3.6</div> </td> 
+                <td class="flex-a"><div class="white">3.6</div></td> 
+              </tr>
+              <tr class="t-data">
+                <td class="flex-a"><div class="black">3.6</div> </td> 
+                <td class="flex-a"><div class="blue">3.6</div> </td> 
+                <td class="flex-a"><div class="white">3.6</div></td> 
+              </tr>
+          </tbody>
+        </table>
+    </div>
+              </div>
+            <!-- Execution Data End here -->
+              <!--<table class="simulator-table">
                 <thead>
                   <tr>
                     <th class="stick">PP</th>
@@ -394,12 +542,148 @@
                     <td class="flex-a" colspan="3"><div class="black">3.6</div> <div class="blue">3.6</div> <div class="white">3.6</div></td> 
                   </tr>
                 </tbody>
-              </table>
-            </div>
+              </table> -->
+          
             <!-- Media Data start from here -->
-            <div class="media-data"  *ngIf="media">
+            <div class="execution-data" *ngIf="media">
+              <!-- <div class="left-input">
+                <div class="input-pp mt-a">PP</div>
+                <div class="input-pp mt-b">0.5</div>
+                <div class="input-pp mt-c">1</div>
+                <div class="input-pp mt-d">3</div>
+              </div> -->
+              <!-- Grammage Table -->
+              <div id="A" class="simulator">
+                <table width="200" class="simulator-data td-height">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Grammage</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                      <tr class="t-data mh">
+                        <td height="85"> </td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="mheading"> Total</td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="mheading"> Sports Bein</td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="mheading"> Sports Non Bein</td> 
+                      </tr>
+
+                  </tbody>
+                </table>
+              </div>
+                <div id="A" class="simulator">
+                    <table class="simulator-data">
+                        <thead>
+                          <tr>
+                            <th colspan="3">Grammage</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                          <tr class="sub-head mh">
+                            <td>Current Pack Level Standings</td>
+                            <td>Recommenda tions</td>
+                            <td class="border-r">Try your Scenario</td>
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div id="A" class="simulator">
+                    <table class="simulator-data">
+                        <thead>
+                          <tr>
+                            <th colspan="3">Grammage</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                          <tr class="sub-head mh">
+                            <td>Current Pack Level Standings</td>
+                            <td>Recommenda tions</td>
+                            <td class="border-r">Try your Scenario</td>
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="flex-a"><div class="black">3.6</div> </td> 
+                            <td class="flex-a"><div class="blue">3.6</div> </td> 
+                            <td class="flex-a"><div class="white">3.6</div></td> 
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div id="A" class="simulator">
+                    <table class="simulator-data">
+                        <thead>
+                          <tr>
+                            <th colspan="3">Grammage</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                          <tr class="t-data">
+                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div id="A" class="simulator">
+                    <table class="simulator-data">
+                        <thead>
+                          <tr>
+                            <th colspan="3">Grammage</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                          <tr class="t-data">
+                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                          </tr>
+                          <tr class="t-data">
+                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+            <!-- <div class="media-data"  *ngIf="media">
               <div class="toggle-flex media-toggle">
-                <!-- <div class="toggle-portfolio">Portfolio</div> -->
                 <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media">{{model.Media}}</mat-slide-toggle> 
               </div>
                 <div > 
@@ -460,6 +744,6 @@
                       </tbody>
                     </table>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
