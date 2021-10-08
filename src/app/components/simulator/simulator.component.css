@@ -31,10 +31,21 @@ button.select-list {
     width: 170px;
     color: #d3cdcd;
 }
+.mat-radio-group {
+    color: #9e9e9e;
+    position: absolute;
+    right: 45px;
+    top: 302px;
+    z-index: 1;
+}
+::ng-deep.mat-radio-outer-circle{
+    border-color: #434348!important;
+    /* height: 15px!important;
+    width: 15px!important; */
+}
 
 .user-dropdown span{
     font-size: 14px;
-
 }
 .user-dropdown .mat-icon{
     position: relative;

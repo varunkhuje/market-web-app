@@ -32,6 +32,7 @@ import { OpenDialogComponent } from './components/open-dialog/open-dialog.compon
 import {MatMenuModule} from '@angular/material/menu';
 import { CompareComponent } from './components/compare/compare.component';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { TopNavigationComponent } from './components/top-navigation/top-navigati
     // HighchartsChartComponent
     HighchartsChartModule,
     MatMenuModule,
+    MatRadioModule,
 
     
   ],
