@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AlertBoxComponent} from '../alert-box/alert-box.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-main',
@@ -16,12 +20,19 @@ export class MainComponent implements OnInit {
   }
 
   isShowDiv = false;
+
+  openAlertBox(){
+    const dialogRef = this.dialog.open(AlertBoxComponent, {
+      width: '800px',
+      data: 'filter'
+    });
+  }
    
   toggleDisplayDiv() {
     this.isShowDiv = !this.isShowDiv;
   }
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }

@@ -76,7 +76,15 @@
                           <span class="input-group-text">%</span>
                         </div>
                       </div>
+                      
+                      <div class="C-volume">
+                        <span class="Vname">Ideal Operating Point</span>
+                        <span class="Vdata">20%</span>
+                      </div>
+                     
+                       
                       <div class="cpg">Cost Per GRP</div>
+
                       <div class="input-group">
                         <label>Sports Bein</label>
                         <input type="text" class="form-control" placeholder="12.6">
@@ -116,12 +124,20 @@
             </div>
 
             <div class="main-container" *ngIf="showDiv.media">
-                <div class="main-title">Media Digital</div>
+                <div class="main-title">Digital</div>
                 <form class="data-group">
-                    <div class="C-volume" style="width: 100%;">
-                        <span class="Vname">Media - Digital Spend Cap</span>
+                    <div class="C-volume">
+                        <span class="Vname">Digital Spend Cap</span>
                         <span class="Vdata">20%</span>
                     </div>
+                    <div class="C-volume">
+                      <span class="Vname">Ideal Operating Point</span>
+                      <span class="Vdata">20%</span>
+                    </div>
+                   
+                    
+                    <div class="cpg">Cost Per Impression</div>
+
                       <div class="input-group">
                         <label>Twitter </label>
                         <input type="text" class="form-control" placeholder="12.6">
@@ -180,7 +196,7 @@
                       </div>
                 </form>
             </div>
-            <button class="run-simulation" [routerLink]="['/simulator']">Run Base Simulation</button>
+            <button class="run-simulation" (click)="openAlertBox()">Run Base Simulation</button>
         </div>
         
     </div>
