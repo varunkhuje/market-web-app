@@ -30,6 +30,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { CompareComponent } from './components/compare/compare.component';
+import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import {MatMenuModule} from '@angular/material/menu';
     ScenarioComponent,
     WelcomeComponent,
     OpenDialogComponent,
+    CompareComponent,
+    TopNavigationComponent,
   ],
   imports: [
     BrowserModule,

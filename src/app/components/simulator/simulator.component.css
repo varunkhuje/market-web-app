@@ -26,16 +26,18 @@ button.select-list {
 
 }
 .top-navbar{
-    padding: 26px 15px;
+    padding: 26px 15px 0px 15px;
     display: flex;
 }
 .navbar-button{
-    width: 200px;
+    width: 170px;
+    font-size: 15px;
     margin: 0 10px;
     padding: 0px 0px 9px 0px;
     /* background: #f1f0f0; */
     border: solid 1px #ccc;
     border-radius: 6px;
+    height: 45px;
 }
 .btn-green{
     background-color: #16c81d;
@@ -126,9 +128,24 @@ button.compare-data{
     background: #18316c;
     margin: 15px 7px;
 }
+.breadcrumb{
+    width: 600px;
+    background: none;
+}
+.breadcrumb .active{
+    cursor: text;
+    color: #333;
+}
+.breadcrumb li{
+    color: #428bca;
+    cursor: pointer;
+}
 .toggle-flex{
     display: flex;
     margin: 10px 10px;
+    position: absolute;
+    top: 1px;
+    right: 10px;
 }
 .toggle-portfolio {
     margin: 0px 20px;
@@ -219,9 +236,18 @@ tr.table-subtitle td{
     background-color: #0272d5;
     color: #fff;
 }
-.brand-logo img{
+/* .brand-logo img{
     width: 40px;
     padding-right: 13px;
+} */
+
+.top-navbar .mat-form-field{
+    width: 220px;
+    margin-right: 20px;
+}
+img.logo-icon {
+    width: 30px;
+    padding-right: 8px;
 }
 .brand-nav{
     border: solid 1px #dddcdc;
@@ -296,7 +322,8 @@ table.media-tv-graph td{
     width: 100px;
     display: inline-flex;
     position: relative;
-    left: -440px;
+    left: -430px;
+    top: 7px;
 }
 
  .dialpad{
@@ -310,21 +337,23 @@ table.media-tv-graph td{
     padding: 5px 15px;
     left: 4px;
     top: 60px;
-    width: 320px;
+    width: 350px;
     background: #fff;
     z-index: 333;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-bottom: solid 5px #0272d5;
+    max-height: 550px;
+    overflow-x: auto;
 }
 .subfilter-tv {
     position: absolute;
-    left: 300px;
+    left: 340px;
     z-index: 333;
     padding: 10px 10px;
     width: 250px;
     background: #fff;
-    top: 140px;
+    top: 120px;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-bottom: solid 5px #0272d5;
@@ -350,13 +379,13 @@ button.close-btn {
 
 .subfilter-media {
     position: absolute;
-    left: 300px;
+    left: 340px;
     z-index: 333;
     padding: 10px 15px;
     border-radius: 10px;
     width: 450px;
     background: #fff;
-    top: 140px;
+    top: 120px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-bottom: solid 5px #0272d5;
     display: flex;

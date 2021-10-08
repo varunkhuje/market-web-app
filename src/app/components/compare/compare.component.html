@@ -1,0 +1,463 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="header-logo">
+          <div class="left-top-filter">
+            <div class="btn"
+					(click)="showDiv.Mfilter = !showDiv.Mfilter;showDiv.MediaFilter = false;showDiv.tvFilter = false;">
+          <mat-icon class="dialpad"> view_headline</mat-icon>
+				</div>
+        <!-- Top Filter start from here -->
+        <div class="filter-cont" *ngIf="showDiv.Mfilter">
+          <div class="filter-title">
+            <img src="../../../assets/images/filter_icon.jpg"> <span>Growth</span>
+          </div>
+            <div class="growth-sec">
+              <div class="g-input">
+                <label>Growth Ambition</label>
+              
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+              <div class="g-volume">
+                <span class="Vname">Current Volume</span>
+              <span class="Vdata">18.67M</span>
+              </div>
+            </div>
+            <div class="filter-title">
+              <img src="../../../assets/images/filter_icon.jpg"> <span>Trade</span>
+            </div>
+            <div class="growth-sec">
+              <div class="g-input">
+                <label>Max Trade</label>              
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+              <div class="g-volume">
+                <span class="Vname">Current DA</span>
+              <span class="Vdata">12.6%</span>
+              </div>
+            </div>
+            <div class="filter-title">
+              <img src="../../../assets/images/filter_icon.jpg"> <span>TV</span>
+              <div class="subside-filter"
+					(click)="showDiv.tvFilter = !showDiv.tvFilter;showDiv.MediaFilter = false;">
+					<mat-icon class="play-arrow">play_arrow</mat-icon>
+				</div>
+            </div>
+            <div class="growth-sec">
+              <div class="g-input">
+                <label>WOA</label>
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+              <div class="g-input">
+                <label>WOA</label>
+              <div class="input-group-append">
+                <input type="text" class="form-control input-append" placeholder="0" disabled>
+                <span class="input-group-text input-align">%</span>
+              </div>
+              </div>
+            </div>
+            <div class="filter-title">
+                <img src="../../../assets/images/filter_icon.jpg"> <span>Media</span>
+                <div class="subside-filter"
+                    (click)="showDiv.MediaFilter = !showDiv.MediaFilter;showDiv.tvFilter = false;"><mat-icon class="play-arrow">play_arrow</mat-icon>
+                </div>
+            </div>
+            <div class="growth-sec">
+              <div class="g-volume">
+                <span class="Vname Mwidth ">Media Digital Spend Cap</span>
+              <span class="Vdata">20%</span>
+              </div>
+              <div class="g-input">
+              </div>
+            </div>
+            <button class="backto-input"><mat-icon class="arrow-ios">arrow_back_ios</mat-icon> Back to Input</button>
+        </div>
+        <!-- top sub filter TV start from here -->
+        <div class="subfilter-tv" *ngIf="showDiv.tvFilter">
+          <button (click)="showDiv.tvFilter = !showDiv.tvFilter;" class="close-btn"><mat-icon>close</mat-icon></button>
+          <div class="cost-grp">Cost Per GRP</div>
+          <div class="g-input sub-track">
+            <label>Sports Bein</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Sports Non Bein</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Fiction</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Entertainment</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input sub-track">
+            <label>Information amd Magazine</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+        </div>
+        <!-- top sub filter Media start from here -->
+        <div class="subfilter-media" *ngIf="showDiv.MediaFilter">
+          <button (click)="showDiv.MediaFilter = !showDiv.MediaFilter;" class="close-btn"><mat-icon>close</mat-icon></button>
+          <div class="cost-grp">Cost Per GRP</div>
+          <div class="growth-sec" style="border: none; width: 100%;">
+            <div class="g-volume">
+              <span class="Vname Mwidth ">Media Digital Spend Cap</span>
+            <span class="Vdata">20%</span>
+            </div>
+            <div class="g-input">
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Twitter</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Programmatic</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>DMS Network</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Facebook</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Snapchat</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input mb-1">
+            <label>Instrgram</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input">
+            <label>Youtube</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+          <div class="g-input">
+            <label>kooora.com</label>
+            <div class="input-group-append">
+              <input type="text" class="form-control input-append" placeholder="0" disabled>
+              <span class="input-group-text input-align">%</span>
+            </div>
+          </div>
+        </div>
+        </div>
+            <img src="../../../assets/images/header_logo.jpg">
+            <button class="insert-comment">
+              <mat-icon> insert_comment</mat-icon>
+              </button>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <!-- <div class="top-navbar"><app-top-navigation></app-top-navigation></div> -->
+            <div class="top-navbar">
+            <mat-form-field>
+                <mat-select placeholder="Brand">
+                  <mat-select-trigger>
+                    <img class="logo-icon" src="../../../assets/images/pepsi_icon.png"> Pepsi
+                  </mat-select-trigger>
+                  <mat-option value="option">
+                    <img class="logo-icon" src="../../../assets/images/lipton_icon.png"> Liption
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/7up_icon.png"> 7UP
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/pepsi_icon.png"> Pepsi
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/lipton_icon.png"> Liption
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/pepsi_icon.png"> Pepsi
+                  </mat-option>
+                  <mat-option value="option">
+                    <img class="logo-icon"  src="../../../assets/images/7up_icon.png"> 7UP
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select placeholder="Execution">
+                  <mat-option value="option" (click)="onExecution()">
+                    Execution - 1
+                  </mat-option> 
+                  <mat-option value="option" (click)="onExecution()">
+                    Execution - 2
+                  </mat-option>
+                  <mat-option value="option" (click)="onExecution()">
+                    Execution - 3
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+               <mat-form-field>
+                <mat-select placeholder="Media">
+                  <mat-option value="option" (click)="showMedia()">
+                   TV
+                  </mat-option>
+                  <mat-option value="option">
+                   Digital
+                   </mat-option>
+                </mat-select>
+              </mat-form-field> 
+              <button  class="navbar-button btn-blue"><mat-icon>save</mat-icon> Save Scenario</button>
+                <button [routerLink]="['/compare']" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button>
+                <button class="navbar-button btn-green"><mat-icon>get_app</mat-icon>Download</button>
+              </div>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Home</li>
+                  <li class="breadcrumb-item">simulator</li>
+                  <li class="breadcrumb-item active" aria-current="page">Compare</li>
+                </ol>
+              </nav>
+            <div class="compare-table" *ngIf="execution">
+                <table class="compare-data">
+                    <thead>
+                        <tr>
+                            <th class="fs" style="padding: 0px 30px;">Input</th>
+                            <th colspan="3">0.5</th>
+                            <th colspan="3">1</th>
+                            <th colspan="3">3</th>
+                            <th colspan="3">5</th>
+                            <th colspan="3">7</th>
+                            <th colspan="3">9</th>
+                            <th colspan="3">10</th>
+                            <th colspan="3">11</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="grammage-s">
+                            <td class="fs"><b>Grammage</b></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                        </tr>
+                        <tr class="grammage-s">
+                            <td class="fs"><b>Distribution</b><br>(TDP Share)</td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                        </tr>
+                        <tr class="grammage-s">
+                            <td class="fs"><b>Distribution</b><br>(ND)</td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="compare-table" *ngIf="media">
+                <table class="compare-data">
+                    <thead>
+                        <tr>
+                            <th class="fs" style="padding: 0px 30px;">Input</th>
+                            <th colspan="3">Total</th>
+                            <th colspan="3">Sports Bein</th>
+                            <th colspan="3">Sports Non Bein</th>
+                            <th colspan="3">xxx</th>
+                            <th colspan="3">xxx</th>
+                            <th colspan="3">xxx</th>
+                            <th colspan="3">xxx</th>
+                            <th colspan="3">xxx</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="grammage-s">
+                            <td class="fs"><b>TV Spend</b></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><span>BASE</span><div class="inputs-d gray">3.8</div></td>
+                            <td><span>S01</span><div class="inputs-d blue">3.8</div></td>
+                            <td><span>S02</span><div class="inputs-d sblue">3.8</div></td>
+                        </tr>
+                        <tr class="grammage-s">
+                            <td class="fs"><b>TV GRP</b></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                        </tr>
+                        <tr class="grammage-s">
+                            <td class="fs"><b>TV VOL Contribution</b></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                            <td class="pl-5"><div class="inputs-d gray">3.8</div></td>
+                            <td><div class="inputs-d blue">3.8</div></td>
+                            <td><div class="inputs-d sblue">3.8</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
