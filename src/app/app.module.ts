@@ -33,6 +33,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { AlertBoxComponent } from './components/alert-box/alert-box.component';
 import { CompareComponent } from './components/compare/compare.component';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { TopNavigationComponent } from './components/top-navigation/top-navigati
     // HighchartsChartComponent
     HighchartsChartModule,
     MatMenuModule,
+    MatRadioModule,
 
     
   ],
