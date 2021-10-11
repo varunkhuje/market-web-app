@@ -78,7 +78,7 @@
               <div class="g-input">
               </div>
             </div>
-            <button class="backto-input"><mat-icon class="arrow-ios">arrow_back_ios</mat-icon> Back to Input</button>
+            <!-- <button class="backto-input"><mat-icon class="arrow-ios">arrow_back_ios</mat-icon> Back to Input</button> -->
         </div>
         <!-- top sub filter TV start from here -->
         <div class="subfilter-tv" *ngIf="showDiv.tvFilter">
@@ -257,6 +257,40 @@
                   <li class="breadcrumb-item active" aria-current="page">Compare</li>
                 </ol>
               </nav>
+              <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
+                <div class="brand-graph">
+                  <highcharts-chart
+                  [Highcharts] = "Highcharts" 
+                  [options] = "chartOptions" 
+                  style = "width: 100%; height: 300px; display: block; position: relative; right: 20px;">
+                </highcharts-chart>
+                </div>
+                <div class="brand-graph">
+                  <highcharts-chart
+                    [Highcharts] = "highchart2" 
+                    [options] = "chartOptions2" 
+                    style = "width: 100%; height: 250px; display: block;">
+                  </highcharts-chart>
+                </div>
+                <div class="brand-graph">
+                  <highcharts-chart
+                    [Highcharts] = "highchart3" 
+                    [options] = "chartOptions3" 
+                    style = "width: 100%; height: 250px; display: block;">
+                  </highcharts-chart>
+                </div>
+              <div class="brand-graph">
+                <mat-radio-group [value]="showgraph"  aria-label="Select an option">
+                  <mat-radio-button value="volume" (change)="graphChange($event)">volume</mat-radio-button>
+                  <mat-radio-button value="abc" (change)="graphChange($event)">abc</mat-radio-button>
+                </mat-radio-group> 
+                <highcharts-chart *ngIf="showgraph == 'volume'"
+                  [Highcharts] = "highchart4" 
+                  [options] = "chartOptions4" 
+                  style = "width: 100%; height: 250px; display: block;">
+                </highcharts-chart>
+              </div>
+              </div>
             <div class="compare-table" *ngIf="execution">
                 <table class="compare-data">
                     <thead>

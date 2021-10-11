@@ -18,6 +18,18 @@ img.logo-icon{
     width: 30px;
     padding-right: 8px;
 }
+
+.brand-graph {
+    width: 24%;
+    /* background: #18316c; */
+    margin: 15px 7px;
+}
+.portfolioVolume .brand-graph{
+    background: #121212;
+}
+.brandVolume .brand-graph{
+    background: #18316c;
+}
 .navbar-button{
     width: 170px;
     font-size: 15px;
