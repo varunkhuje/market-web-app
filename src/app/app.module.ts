@@ -30,6 +30,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { AlertBoxComponent } from './components/alert-box/alert-box.component';
 import { CompareComponent } from './components/compare/compare.component';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 import {MatRadioModule} from '@angular/material/radio';
@@ -45,6 +46,7 @@ import {MatRadioModule} from '@angular/material/radio';
     ScenarioComponent,
     WelcomeComponent,
     OpenDialogComponent,
+    AlertBoxComponent,
     CompareComponent,
     TopNavigationComponent,
   ],
@@ -75,7 +77,7 @@ import {MatRadioModule} from '@angular/material/radio';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[OpenDialogComponent],
+  entryComponents:[OpenDialogComponent, AlertBoxComponent],
 })
 export class AppModule { 
   

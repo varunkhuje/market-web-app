@@ -30,6 +30,7 @@ export class SimulatorComponent implements OnInit {
   media:any = false;
   media_graph: any = false;
   media_table: any = false;
+  showgraph = 'volume';
 
   constructor(public dialog: MatDialog,){
       this.model = {name: null, ExeCution: false, Media: false,};
@@ -39,6 +40,10 @@ export class SimulatorComponent implements OnInit {
     this.execution = true;
     this.media = false;
 
+  }
+
+  graphChange(event:any){
+    this.showgraph = event.value;
   }
 
   showMedia(){
@@ -138,7 +143,7 @@ export class SimulatorComponent implements OnInit {
     chartOptions2:any = {     
         chart: {
           type: 'bar',
-          backgroundColor: '#121212',
+          backgroundColor: 'transparent',
 
       },
       title: {
@@ -189,7 +194,7 @@ export class SimulatorComponent implements OnInit {
     chartOptions3:any = {     
         chart: {
           type: 'bar',
-          backgroundColor: '#121212',
+          backgroundColor: 'transparent',
           style: {
             color: 'white',
           }
@@ -240,7 +245,7 @@ export class SimulatorComponent implements OnInit {
     chartOptions4:any = {     
       chart: {
         type: 'column',
-        backgroundColor: '#121212',
+        backgroundColor: 'transparent',
           style: {
             color: 'white',
           }
@@ -257,7 +262,7 @@ export class SimulatorComponent implements OnInit {
     },
     xAxis: {
         categories: [
-            'Distribution',
+            'Distri-<br>bution',
             'TV',
             'Digital',
             'Trade',
@@ -270,6 +275,59 @@ export class SimulatorComponent implements OnInit {
           }
         },
         // crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: ''
+        },
+        gridLineWidth: 0,
+
+    },
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: '',
+        data: [49.9, 71.5, 106.4, 129.2, 144.0]
+
+    }]
+    };
+
+    highchart5 = Highcharts;
+    chartOptions5: any ={
+      chart: {
+        type: 'column'
+    },
+    title: {
+        text: null
+    },
+    subtitle: {
+        text: null
+    },
+    legend: {
+      enabled: false
+    },
+    xAxis: {
+        categories: [
+            'Current',
+            'New',
+        ],
+        crosshair: true
     },
     yAxis: {
         min: 0,
@@ -292,13 +350,11 @@ export class SimulatorComponent implements OnInit {
         }
     },
     series: [{
-        name: 'Tokyo',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0]
-
+        name: '',
+        data: [0.59, 0.59]
     }]
     };
-  
-  
+
   formSubmit(){
     console.log('form submit request');
   }

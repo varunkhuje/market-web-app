@@ -78,7 +78,7 @@
               <div class="g-input">
               </div>
             </div>
-            <button class="backto-input"><mat-icon class="arrow-ios">arrow_back_ios</mat-icon> Back to Input</button>
+            <!-- <button class="backto-input"><mat-icon class="arrow-ios">arrow_back_ios</mat-icon> Back to Input</button> -->
         </div>
         <!-- top sub filter TV start from here -->
         <div class="subfilter-tv" *ngIf="showDiv.tvFilter">
@@ -283,8 +283,8 @@
             <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
                 <div class="toggle-flex">
                 <div class="toggle-portfolio">Portfolio</div>
-                <mat-slide-toggle #ExeCution  [(ngModel)]="model.ExeCution" name="ExeCution"></mat-slide-toggle> 
-                <!-- {{model.ifPrint}} --> <div class="toggle-brand">Brand <img class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
+                <mat-slide-toggle #ExeCution  [(ngModel)]="model.ifPrint" name="ExeCution"></mat-slide-toggle> 
+                <!-- {{model.ifPrint}} --> <div  class="toggle-brand">Brand <img *ngIf="!model.ifPrint" class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
                 <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
                    <div class="graph-heading">Chart Title</div> 
                   <div class="brand-graph">
@@ -309,11 +309,11 @@
                     </highcharts-chart>
                   </div>
                 <div class="brand-graph">
-                  <mat-radio-group aria-label="Select an option">
-                    <mat-radio-button value="1">yes</mat-radio-button>
-                    <mat-radio-button value="2">N0</mat-radio-button>
-                  </mat-radio-group>
-                  <highcharts-chart
+                  <mat-radio-group [value]="showgraph"  aria-label="Select an option">
+                    <mat-radio-button value="volume" (change)="graphChange($event)">volume</mat-radio-button>
+                    <mat-radio-button value="abc" (change)="graphChange($event)">abc</mat-radio-button>
+                  </mat-radio-group> 
+                  <highcharts-chart *ngIf="showgraph == 'volume'"
                     [Highcharts] = "highchart4" 
                     [options] = "chartOptions4" 
                     style = "width: 100%; height: 250px; display: block;">
@@ -394,7 +394,7 @@
                     </table>
                 </div>
                 <!-- Distribution ND Table -->
-                <div id="DistributionND" class="simulator">
+                <!-- <div id="DistributionND" class="simulator">
                   <table class="simulator-data">
                       <thead>
                         <tr>
@@ -424,7 +424,7 @@
                         </tr>
                     </tbody>
                   </table>
-              </div>
+              </div> -->
               <!-- Distribution PackMix Table -->
               <div id="PackMix" class="simulator">
                 <table class="simulator-data">
@@ -562,7 +562,7 @@
                 <table width="200" class="simulator-data td-height">
                     <thead>
                       <tr>
-                        <th colspan="3">Grammage</th>
+                        <th colspan="3"> &nbsp;</th>
                       </tr>
                     </thead>
                   <tbody>
@@ -582,11 +582,38 @@
                   </tbody>
                 </table>
               </div>
+              <div id="A" class="simulator">
+                <table class="simulator-data">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Effectiveness</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                      <tr class="sub-head mh">
+                        <td>Current Pack Level Standings</td>
+                       
+                      </tr>
+                      <tr class="t-data">
+                       
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                      <tr class="t-data">
+                        
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                      <tr class="t-data">
+                       
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
                 <div id="A" class="simulator">
                     <table class="simulator-data">
                         <thead>
                           <tr>
-                            <th colspan="3">Grammage</th>
+                            <th colspan="3">TV Spend</th>
                           </tr>
                         </thead>
                       <tbody>
@@ -617,7 +644,7 @@
                     <table class="simulator-data">
                         <thead>
                           <tr>
-                            <th colspan="3">Grammage</th>
+                            <th colspan="3">TV GRP</th>
                           </tr>
                         </thead>
                       <tbody>
@@ -648,15 +675,19 @@
                     <table class="simulator-data">
                         <thead>
                           <tr>
-                            <th colspan="3">Grammage</th>
+                            <th colspan="3">TV VOL Contribution</th>
                           </tr>
                         </thead>
                       <tbody>
                           <tr class="t-data">
-                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                            <td class="bar-chart">  </td> 
                           </tr>
                           <tr class="t-data">
-                            <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
+                            <td class="bar-chart"> <highcharts-chart
+                              [Highcharts] = "highchart5" 
+                              [options] = "chartOptions5" 
+                              style = "width: 300px; height: 60px; display: block;">
+                            </highcharts-chart></td> 
                           </tr>
                           <tr class="t-data">
                             <td class="bar-chart"> <img src="../../../assets/images/chart1.jpg"></td> 
@@ -669,7 +700,7 @@
                     <table class="simulator-data">
                         <thead>
                           <tr>
-                            <th colspan="3">Grammage</th>
+                            <th colspan="3">TV ROI</th>
                           </tr>
                         </thead>
                       <tbody>
