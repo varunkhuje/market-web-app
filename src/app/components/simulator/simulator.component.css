@@ -34,8 +34,8 @@ button.select-list {
 .mat-radio-group {
     color: #9e9e9e;
     position: absolute;
-    right: 45px;
-    top: 302px;
+    right: 215px;
+    top: 362px;
     z-index: 1;
 }
 ::ng-deep.mat-radio-outer-circle{
@@ -121,7 +121,6 @@ button.compare-data{
 }
 .brandVolume {
     border: solid 1px #ccc;
-    height: 280px;
     border-radius: 5px;
     background: #1b2559;
     display: flex;
@@ -130,7 +129,6 @@ button.compare-data{
 
 .portfolioVolume {
     border: solid 1px #ccc;
-    height: 280px;
     border-radius: 5px;
     background: #000;
     display: flex;
@@ -139,7 +137,18 @@ button.compare-data{
 .brand-graph {
     width: 24%;
     /* background: #18316c; */
-    margin: 15px 7px;
+    margin: 40px 7px 25px 7px;
+}
+::ng-deep tspan {
+    font-size: 14px;
+}
+.graph-heading {
+    position: absolute;
+    left: 642px;
+    color: #65a5e3;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 18px;
 }
 .portfolioVolume .brand-graph{
     background: #121212;

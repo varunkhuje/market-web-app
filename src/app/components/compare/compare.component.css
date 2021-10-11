@@ -4,11 +4,11 @@
     width: 100%;
     padding: 7px;
 }
-.compare-table {
+/* .compare-table {
     width: 1340px;
     overflow-x: scroll;
     margin: 30px 0;
-}
+} */
 /* top navigation css start */
 .top-navbar{
     padding: 26px 15px 0px 15px;
@@ -270,4 +270,45 @@ td.fs {
 .sblue{
     background: #0272d5;
     color: #fff;
+}
+
+/* Table css start from here */
+.compare-table {
+    width: 1330px;
+    overflow-x: scroll;
+    margin: 30px 0;
+    display: flex;
+}
+table.simulator-data{
+    background: #fff;
+    border: solid 1px #ccc;
+    border-top: none;
+}
+.compare-table thead th{
+    background: #000;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    border-right: solid 1px #000;
+    border-left: solid 1px #000;
+}
+.t-data td{
+    text-align: center;
+}
+td.mheading{
+    padding: 24px 20px;
+    font-weight: 600;
+    text-align: left!important;
+}
+td.flex-a div{
+    width: 50px;
+    height: 43px;
+    padding: 10px 8px;
+    border-radius: 7px;
+    margin: 12px 3px;
+    display: inline-block;
+}
+tr.sub-head.mh td {
+    text-align: center;
 }

@@ -286,6 +286,7 @@
                 <mat-slide-toggle #ExeCution  [(ngModel)]="model.ExeCution" name="ExeCution"></mat-slide-toggle> 
                 <!-- {{model.ifPrint}} --> <div class="toggle-brand">Brand <img class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
                 <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
+                   <div class="graph-heading">Chart Title</div> 
                   <div class="brand-graph">
                     <highcharts-chart
                     [Highcharts] = "Highcharts" 
