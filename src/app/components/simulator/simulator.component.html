@@ -191,6 +191,7 @@
         </div>
         </div>
               <img src="../../../assets/images/header_logo.jpg">
+              <button class="home-btn"><mat-icon>home</mat-icon></button>
              <button class="insert-comment">
               <mat-icon> insert_comment</mat-icon>
               </button>  
@@ -214,8 +215,6 @@
                 </button>
               </mat-menu>
             </div>
-
-
         </div> 
         <div class="col-lg-12 col-md-12">
             <div class="top-navbar">
@@ -272,7 +271,7 @@
                 <button class="navbar-button btn-green"><mat-icon>check</mat-icon>Complete</button>
             </div>
         </div>
-        <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-md-12 top">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
@@ -280,32 +279,32 @@
                 <li class="breadcrumb-item active" aria-current="page">simulator</li>
               </ol>
             </nav>
+            <div class="graph-heading">Chart Title</div> 
             <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
                 <div class="toggle-flex">
                 <div class="toggle-portfolio">Portfolio</div>
                 <mat-slide-toggle #ExeCution  [(ngModel)]="model.ifPrint" name="ExeCution"></mat-slide-toggle> 
                 <!-- {{model.ifPrint}} --> <div  class="toggle-brand">Brand <img *ngIf="!model.ifPrint" class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
                 <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
-                   <div class="graph-heading">Chart Title</div> 
                   <div class="brand-graph">
                     <highcharts-chart
                     [Highcharts] = "Highcharts" 
                     [options] = "chartOptions" 
-                    style = "width: 100%; height: 300px; display: block; position: relative; right: 20px;">
+                    style = "width: 100%; height: 200px; display: block; position: relative; right: 20px;">
                   </highcharts-chart>
                   </div>
                   <div class="brand-graph">
                     <highcharts-chart
                       [Highcharts] = "highchart2" 
                       [options] = "chartOptions2" 
-                      style = "width: 100%; height: 250px; display: block;">
+                      style = "width: 100%; height: 220px; display: block;">
                     </highcharts-chart>
                   </div>
                   <div class="brand-graph">
                     <highcharts-chart
                       [Highcharts] = "highchart3" 
                       [options] = "chartOptions3" 
-                      style = "width: 100%; height: 250px; display: block;">
+                      style = "width: 100%; height: 220px; display: block;">
                     </highcharts-chart>
                   </div>
                 <div class="brand-graph">
@@ -316,7 +315,7 @@
                   <highcharts-chart *ngIf="showgraph == 'volume'"
                     [Highcharts] = "highchart4" 
                     [options] = "chartOptions4" 
-                    style = "width: 100%; height: 250px; display: block;">
+                    style = "width: 100%; height: 220px; display: block;">
                   </highcharts-chart>
                 </div>
                 </div>
@@ -551,6 +550,11 @@
           
             <!-- Media Data start from here -->
             <div class="execution-data" *ngIf="media">
+              <div class="toggle-flex media-toggle">
+                <div class="toggle-portfolio">Table</div>
+                <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media"></mat-slide-toggle> 
+                <div class="toggle-brand">Chart</div>
+                </div>
               <!-- <div class="left-input">
                 <div class="input-pp mt-a">PP</div>
                 <div class="input-pp mt-b">0.5</div>
@@ -567,7 +571,7 @@
                     </thead>
                   <tbody>
                       <tr class="t-data mh">
-                        <td height="85"> </td> 
+                        <td height="45"> </td> 
                       </tr>
                       <tr class="t-data">
                         <td class="mheading"> Total</td> 

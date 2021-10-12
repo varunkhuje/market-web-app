@@ -135,13 +135,15 @@ export class CompareComponent implements OnInit {
     chartOptions2:any = {     
         chart: {
           type: 'bar',
-          backgroundColor: '#121212',
+          backgroundColor: 'transparent',
 
       },
+      credits: {enabled: false},
       title: {
           text: 'ROI',
           style: {
             color: 'white',
+            fontSize:'12px'
           }
       },
       xAxis: {
@@ -186,16 +188,19 @@ export class CompareComponent implements OnInit {
     chartOptions3:any = {     
         chart: {
           type: 'bar',
-          backgroundColor: '#121212',
+          backgroundColor: 'transparent',
           style: {
             color: 'white',
+            fontSize:'12px'
           }
 
       },
+      credits: {enabled: false},
       title: {
           text: 'Spend',
           style: {
             color: 'white',
+            fontSize:'12px'
           }
       },
       xAxis: {
@@ -237,7 +242,7 @@ export class CompareComponent implements OnInit {
     chartOptions4:any = {     
       chart: {
         type: 'column',
-        backgroundColor: '#121212',
+        backgroundColor: 'transparent',
           style: {
             color: 'white',
           }
@@ -247,6 +252,7 @@ export class CompareComponent implements OnInit {
         text: 'Volume Due to',
         style: {
           color: 'white',
+          fontSize:'12px'
         }
     },
     subtitle: {
@@ -303,6 +309,7 @@ export class CompareComponent implements OnInit {
       chart: {
         type: 'column'
     },
+    credits: {enabled: false},
     title: {
         text: null
     },

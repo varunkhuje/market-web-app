@@ -146,10 +146,12 @@ export class SimulatorComponent implements OnInit {
           backgroundColor: 'transparent',
 
       },
+      credits: {enabled: false},
       title: {
           text: 'ROI',
           style: {
             color: 'white',
+            fontSize:'12px'
           }
       },
       xAxis: {
@@ -164,8 +166,11 @@ export class SimulatorComponent implements OnInit {
         visible: false,
       
           min: 0,
+          credits: {enabled: false},
           title: {
-              text: ''
+              text: '',
+              fontSize:'12px'
+            
           }
       },
       legend: {
@@ -200,10 +205,12 @@ export class SimulatorComponent implements OnInit {
           }
 
       },
+      credits: {enabled: false},
       title: {
           text: 'Spend',
           style: {
             color: 'white',
+            fontSize:'12px'
           }
       },
       xAxis: {
@@ -218,6 +225,7 @@ export class SimulatorComponent implements OnInit {
         visible: false,
       
           min: 0,
+          credits: {enabled: false},
           title: {
               text: ''
           }
@@ -255,6 +263,7 @@ export class SimulatorComponent implements OnInit {
         text: 'Volume Due to',
         style: {
           color: 'white',
+          fontSize:'12px'
         }
     },
     subtitle: {
@@ -362,7 +371,7 @@ export class SimulatorComponent implements OnInit {
   open()
 {
   const dialogRef = this.dialog.open(OpenDialogComponent, {
-    width: '800px',
+    width: '400px',
     data: 'filter'
   });
 }
