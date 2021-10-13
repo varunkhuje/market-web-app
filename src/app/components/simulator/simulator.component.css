@@ -583,6 +583,52 @@ button.insert-comment {
     top: -3px;
 }
 
+.msg-toogle {
+    position: absolute;
+    top: 65px;
+    z-index: 3333333;
+    width: 390px;
+    right: 172px;
+    background: #fff;
+    border-radius: 10px;
+}
+span.d-block.font-weight-bold.name {
+    text-align: left;
+    padding-left: 10px;
+}
+.text-black-50 {
+    color: rgba(0,0,0,.5)!important;
+    font-size: 12px;
+    padding-left: 8px;
+}
+.bg-white {
+  background: none!important;
+}
+.d-flex.flex-row.fs-12 {
+    position: relative;
+    top: -25px;
+    left: 43px;
+}
+.like .mat-icon{
+    color: #999797;
+    font-size: 18px;
+    top: 4px;
+}
+.ml-1 {
+    font-size: 12px;
+    margin-left: -7px!important;
+}
+p.comment-text {
+    font-size: 14px;
+    text-align: left;
+    padding: 5px;
+}
+.d-flex.flex-row.fs-12{
+    position: relative;
+    top: -38px;
+    left: 3px;
+}
+
   
   /* .stick:before {
     content: 'Row ';
