@@ -267,8 +267,15 @@
                    </mat-option>
                 </mat-select>
               </mat-form-field> 
-              <button  class="navbar-button btn-blue"><mat-icon>save</mat-icon> Save Scenario</button>
-                <button [routerLink]="['/compare']" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button>
+              <mat-form-field>
+                <mat-label>Scenarios</mat-label>
+                <mat-select [(ngModel)]="selectedScenario" multiple>
+                  <mat-option *ngFor="let scenario of scenarios" [value]="scenario">{{scenario}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- <button  class="navbar-button btn-blue"><mat-icon>save</mat-icon> Save Scenario</button> -->
+                <!-- <button [routerLink]="['/compare']" class="navbar-button btn-green"><mat-icon>remove_red_eye</mat-icon>Compare</button> -->
                 <button class="navbar-button btn-green"><mat-icon>get_app</mat-icon>Download</button>
               </div>
             </div>
