@@ -20,4 +20,9 @@ export class CommonService {
     return this.http.get(baseUrl + '/get_categories');
   }
 
+  createSimuation(data:any): Observable<any> {
+    console.log(data);
+    return this.http.post(baseUrl + '/create_simulation', data);
+  }
+
 }

@@ -8,19 +8,24 @@
     </div>
     <div class="row">
         <div class="new-scenario">
-            <form class="create-scenario">
+            <form class="create-scenario" [formGroup] = "simulationForm"  >
                 <div class="row">
                 <div class="col-lg-12 col-mg-12">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Simulation Name</mat-label>
-                    <input matInput placeholder="Enter Scenario name ">
+                    <input matInput placeholder="Enter Scenario name" formControlName="name">
                   </mat-form-field>
+                  <p *ngIf="f.name.errors && submitted && f.name.errors.required" style="font-size: 10px;
+                  color: red;
+                  margin-top: -35px;">Name is required.</p>
+                  
+                 
                 </div>
                 <div class="col-lg-6 col-mg-6 pr-4">
                     <mat-form-field appearance="fill">
                         <mat-label>Country</mat-label>
-                        <mat-select [(value)]="selectedCountry" (selectionChange)="changeCountry()">
-                          <mat-option *ngFor="let country of countries" [value]="country.name">
+                        <mat-select [(value)]="selectedCountry" formControlName="country_name" (selectionChange)="changeCountry()">
+                          <mat-option *ngFor="let country of countries" [value]="country.id">
                             {{country.name}}
                           </mat-option>
                         </mat-select>
@@ -34,9 +39,12 @@
                           <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option> -->
                         <!-- </mat-select> -->
                       </mat-form-field>
+                      <p *ngIf="f.country_name.errors && submitted && f.country_name.errors.required" style="font-size: 10px;
+                      color: red;
+                      margin-top: -35px;">Country is required.</p>
                 </div>
                 <div class="col-lg-6 col-mg-6 pl-4">
-                    <mat-form-field appearance="fill">
+                    <!-- <mat-form-field appearance="fill">
                       <mat-label>Time</mat-label>
                       
                         <mat-select [formControl]="toppings" multiple>
@@ -48,22 +56,26 @@
                           </mat-select-trigger>
                           <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
                         </mat-select>
-                      </mat-form-field>
+                      </mat-form-field> -->
                 </div>
                 <div class="col-lg-6 col-mg-6 pr-4">
                     <div class="simulation-title">Category:</div>
-                    <button *ngFor="let category of categories" class="simulation-for" [ngClass]="{'active': category.isClicked}" (click)="category.isClicked = (category.isClicked ? false :true )">
+                    <button ngDefaultControl type="button" (click)="selectCategory(category.id)" *ngFor="let category of categories" formControlName="simulation_category" class="simulation-for" [ngClass]="{'active': category.isClicked}" (click)="category.isClicked = (category.isClicked ? false :true )">
                       {{ category.name }}
                   </button>
+                  <p *ngIf="f.simulation_category.errors && submitted && f.simulation_category.errors.required" style="font-size: 10px;
+                  color: red;
+                  margin-top: -35px;">Category is required.</p>
                     <!-- <button class="simulation-for active">Beverages</button>
                     <button class="simulation-for">Snacks</button> -->
                 </div>
+               
                 <div class="col-lg-6 col-mg-6 pl-5">
                     <div class="simulation-title">Brand</div>
                     <img class="brand" src="../../../assets/images/brand.jpg">
                 </div>
             </div>
-            <button class="inputs-samulation" [routerLink]="['/input_constraint']">Input Constraints</button>
+            <button class="inputs-samulation" (click)="submit()" type="submit">Input Constraints</button>
             </form>
         </div>
     </div>
