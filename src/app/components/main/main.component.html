@@ -24,7 +24,7 @@
             <button class="main-btn" (click)="showDiv.previous = true; showDiv.current = false;showDiv.next = false; showDiv.media = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> Growth <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
             <button class="main-btn" (click)="showDiv.current = true; showDiv.previous = false; showDiv.next = false; showDiv.media = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> Trade <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
             <button class="main-btn" (click)="showDiv.next = true; showDiv.previous = false;showDiv.current = false; showDiv.media = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> TV <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
-            <button class="main-btn" (click)="showDiv.media = true; showDiv.previous = false;showDiv.next = false; showDiv.current = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> Media Digital <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
+            <button class="main-btn" (click)="showDiv.media = true; showDiv.previous = false;showDiv.next = false; showDiv.current = false"><img class="icon" src="../../../assets/images/icon-1.jpg"> Digital <img class="arrow" src="../../../assets/images/arrow.jpg"> </button>
         </div>
         <div class="col-lg-9 col-md-9">
             <div class="main-container" *ngIf="showDiv.previous">
@@ -89,35 +89,35 @@
                         <label>Sports Bein</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Fiction</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Sports Non Bein</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Information and Magazine</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Entertainment</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                 </form>
@@ -126,72 +126,80 @@
             <div class="main-container" *ngIf="showDiv.media">
                 <div class="main-title">Digital</div>
                 <form class="data-group">
-                    <div class="C-volume">
+                  <div class="input-group">
+                    <label>Total digital Spend</label>
+                    <input type="text" class="form-control" placeholder="12.6">
+                    <div class="input-group-append">
+                      <!-- <span class="input-group-text">%</span> -->
+                    </div>
+                  </div>
+                    <!-- <div class="C-volume">
                         <span class="Vname">Digital Spend Cap</span>
                         <span class="Vdata">20%</span>
-                    </div>
+                    </div> -->
                     <div class="C-volume">
                       <span class="Vname">Ideal Operating Point</span>
                       <span class="Vdata">20%</span>
                     </div>
                    
+                   
                     
-                    <div class="cpg">Cost Per Impression</div>
+                    <div class="cpg">Cost Per Metric</div>
 
                       <div class="input-group">
                         <label>Twitter </label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>DMS Network</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Snalpchat</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Programmatic</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Facebook</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Youtube</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Instagram</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Kooora.com</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                 </form>

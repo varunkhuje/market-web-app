@@ -27,6 +27,11 @@ export class CompareComponent implements OnInit {
 
   showgraph: any = 'volume';
 
+  selectedScenario = "";
+
+  scenarios: string[] = ['Q1', 'Q2', 'Q3', 'Q4'];
+
+
   constructor(public dialog: MatDialog,){
       this.model = {name: null, ExeCution: false, Media: false,};
   }

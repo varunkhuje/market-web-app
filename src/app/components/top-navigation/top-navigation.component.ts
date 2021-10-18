@@ -12,6 +12,9 @@ export class TopNavigationComponent implements OnInit {
   media:any = false;
   media_graph: any = false;
   media_table: any = false;
+  selectedScenario = "";
+
+  scenarios: string[] = ['Q1', 'Q2', 'Q3', 'Q4'];
 
   constructor(){
      
