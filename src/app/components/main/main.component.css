@@ -54,12 +54,12 @@ img.icon {
 .main-title {
     font-size: 18px;
     font-weight: 500;
-    padding: 15px 30px;
+    padding: 10px 30px;
     border-bottom: solid 1px #ccc;
 }
 .data-group{
     display: flex;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     flex-wrap: wrap;
 }
 
@@ -72,14 +72,14 @@ img.icon {
 }
 .data-group .input-group{
     width: 200px;
-    margin: 20px 30px;
+    margin: 10px 30px;
 }
 .form-control:not(:last-child) {
     border-top-left-radius: 8px!important;
     border-bottom-left-radius: 8px!important;
 }
 .C-volume {
-    margin: 18px 50px;
+    margin: 8px 30px;
 }
 span.input-group-text {
     font-weight: 700;
@@ -135,4 +135,7 @@ button.run-simulation {
 }
 .dropdown-menu{
     width: 260px;
+}
+span.input-group-text {
+    height: 38px;
 }

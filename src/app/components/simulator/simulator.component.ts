@@ -259,13 +259,7 @@ export class SimulatorComponent implements OnInit {
           }
     },
     credits: {enabled: false},
-    title: {
-        text: 'Volume Due to',
-        style: {
-          color: 'white',
-          fontSize:'12px'
-        }
-    },
+    title: null,
     subtitle: {
         text: ''
     },

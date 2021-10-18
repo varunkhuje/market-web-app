@@ -12,7 +12,12 @@ export class CommonService {
 
   constructor(private http: HttpClient) { }
 
-  test(): Observable<any> {
-    return this.http.get(baseUrl + '/test');
+  getCountries(): Observable<any> {
+    return this.http.get(baseUrl + '/get_countries');
   }
+
+  getCategories(): Observable<any> {
+    return this.http.get(baseUrl + '/get_categories');
+  }
+
 }
