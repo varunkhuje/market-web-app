@@ -133,12 +133,15 @@ img.logo-brand{
     width: 24px;
 }
 .mat-radio-group{
-    color: #9e9e9e;
+    color: #fff;
     position: absolute;
-    right: 36px;
-    top: 102px;
+    right: 58px;
+    top: 67px;
     z-index: 1;
     font-size: 14px;
+}
+.mat-radio-button{
+    margin-right: 6px;
 }
 ::ng-deep.mat-radio-outer-circle {
     border-color: rgb(212, 211, 211)!important;
@@ -383,10 +386,12 @@ table.simulator-data{
     text-align: center;
     color: #585858;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
+    padding-bottom: 0px;
 }
 tr.sub-head td {
     text-align: center;
+    line-height: 12px;
 }
 .t-data td{
     text-align: center;
@@ -410,7 +415,7 @@ td.flex-a div{
     text-align: center;
     font-weight: 500;
     position: relative;
-    top: 12px;
+    top: 9px;
 }
 .simulator{
     margin: 0 10px;

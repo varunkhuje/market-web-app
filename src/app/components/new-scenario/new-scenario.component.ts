@@ -30,7 +30,6 @@ export class NewScenarioComponent implements OnInit {
     .subscribe(
       data => {
         this.countries = data.countries;
-        console.log(data.countries);
       },
       error => {
         console.log(error);
@@ -43,7 +42,6 @@ export class NewScenarioComponent implements OnInit {
             d.isClicked = false;
         })
         this.categories = data.categories;
-        console.log(data.categories);
       },
       error => {
         console.log(error);
@@ -54,6 +52,8 @@ export class NewScenarioComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     country_name: new FormControl('', [Validators.required]),
     simulation_category: new FormControl('', [Validators.required]),
+    brand: new FormControl('', [Validators.required]),
+
   });
 
   get f(){ return this.simulationForm.controls; }
@@ -61,16 +61,15 @@ export class NewScenarioComponent implements OnInit {
 
   submit(){
     this.submitted = true;
-    console.log(this.simulationForm.value);
     this.commonService.createSimuation(this.simulationForm.value)
     .subscribe(
       response => {     
-        console.log(response);   
+        this.commonService.setSelectedDetails(response); 
         this.successful = true;     
-        // setTimeout(() => {
-        //   console.log('i')
-        //   this.router.navigateByUrl('/login');
-        // }, 2000);  //5s
+        setTimeout(() => {
+          // console.log('i')
+          this.router.navigateByUrl('/input_constraint');
+        }, 2000); 
       },
       error => {
         this.submitted = true;
@@ -80,8 +79,10 @@ export class NewScenarioComponent implements OnInit {
 
   selectCategory(category_name:any){
     this.simulationForm.controls.simulation_category.setValue(category_name);
+  }
 
-    // this.simulationForm.get('simulation_category').setValue(data.id);
+  selectBrand(brand:any){
+    this.simulationForm.controls.brand.setValue(brand);
   }
 
   changeCountry(){

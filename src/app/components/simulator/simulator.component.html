@@ -190,11 +190,44 @@
           </div>
         </div>
         </div>
-              <img src="../../../assets/images/header_logo.jpg">
+              <img src="../../../assets/images/header_logo.jpg" style="position: relative;
+              top: -5px;"><span style="color:white">Canvas/Business Simulator </span>
               <button class="home-btn"><mat-icon>home</mat-icon></button>
-             <button class="insert-comment">
+             <button class="insert-comment" data-toggle="collapse" href="#multiCollapseExample1">
               <mat-icon> insert_comment</mat-icon>
               </button>  
+
+              <div class="msg-toogle">
+                <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a> -->
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="d-flex flex-column comment-section" id="myGroup">
+                      <div class="bg-white p-2">
+                          <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                              <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                          </div>
+                          <div class="mt-2">
+                              <p class="comment-text">Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur.</p>
+                          </div>
+                          <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                          <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button></div>
+                      </div>
+                      <!-- <div class="bg-white p-2">
+                          <div class="d-flex flex-row fs-12">
+                              <div class="like p-2 cursor"><mat-icon>thumb_up</mat-icon><span class="ml-1">Like</span></div>
+                              <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-1" href="#collapse-1"><mat-icon> insert_comment</mat-icon><span class="ml-1">Comment</span></div>
+                              <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-2" href="#collapse-2"><mat-icon>share</mat-icon><span class="ml-1">Share</span></div>
+                          </div>
+                      </div> -->
+                      <div id="collapse-1" class="bg-light p-2 collapse" data-parent="#myGroup">
+                          <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                          <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+                      </div>
+                      <div id="collapse-2" class="bg-light p-2 collapse" data-parent="#myGroup">
+                          <div class="d-flex flex-row align-items-start"><i class="fa fa-facebook border p-3 rounded mr-1"></i><i class="fa fa-twitter border p-3 rounded mr-1"></i><i class="fa fa-linkedin border p-3 rounded mr-1"></i><i class="fa fa-instagram border p-3 rounded mr-1"></i><i class="fa fa-dribbble border p-3 rounded mr-1"></i> <i class="fa fa-pinterest-p border p-3 rounded mr-1"></i> </div>
+                      </div>
+                  </div>
+                  </div>
+              </div>
               <div class="user-dropdown">
                 <img class="user-icon" src="../../../assets/images/user.png"> <span>User Name</span>
               <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -244,6 +277,12 @@
                 </mat-select>
               </mat-form-field>
               <mat-form-field>
+                <mat-label>Execution</mat-label>
+                <mat-select [(value)]="selectedChannel">
+                  <mat-option [value]="channel.channel" (click)="onExecution(channel.channel)" *ngFor="let channel of channels">{{ channel.channel }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- <mat-form-field>
                 <mat-select placeholder="Execution">
                   <mat-option value="option" (click)="onExecution()">
                     Execution - 1
@@ -255,13 +294,15 @@
                     Execution - 3
                   </mat-option>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field> -->
               <mat-form-field>
-                <mat-select placeholder="Media">
-                  <mat-option value="option" (click)="showMedia()">
+                <mat-label>Media</mat-label>
+
+                <mat-select [(value)]=selectedMedia>
+                  <mat-option value="TV" (click)="onMediaChange('TV')">
                    TV
                   </mat-option>
-                  <mat-option value="option">
+                  <mat-option value="Digital" (click)="onMediaChange('Digital')">
                    Digital
                    </mat-option>
                 </mat-select>
@@ -279,218 +320,251 @@
                 <li class="breadcrumb-item active" aria-current="page">simulator</li>
               </ol>
             </nav>
-            <div class="graph-heading">Chart Title</div> 
-            <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
-                <div class="toggle-flex">
-                <div class="toggle-portfolio">Portfolio</div>
-                <mat-slide-toggle #ExeCution  [(ngModel)]="model.ifPrint" name="ExeCution"></mat-slide-toggle> 
-                <!-- {{model.ifPrint}} --> <div  class="toggle-brand">Brand <img *ngIf="!model.ifPrint" class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
-                <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
-                  <div class="brand-graph">
-                    <highcharts-chart
-                    [Highcharts] = "Highcharts" 
-                    [options] = "chartOptions" 
-                    style = "width: 100%; height: 200px; display: block; position: relative; right: 20px;">
-                  </highcharts-chart>
-                  </div>
-                  <div class="brand-graph">
-                    <highcharts-chart
-                      [Highcharts] = "highchart2" 
-                      [options] = "chartOptions2" 
-                      style = "width: 100%; height: 220px; display: block;">
+            <div class="graph-heading">Results are at National Level</div>
+            <div style=" position: sticky;
+        top:0;
+        z-index: 999;">
+              <form (ngSubmit)="formSubmit()" #demoForm="ngForm"  >
+                  <div class="toggle-flex">
+                    <div class="toggle-portfolio">Portfolio</div>
+                    <mat-slide-toggle #ExeCution  [(ngModel)]="model.ifPrint" name="ExeCution"></mat-slide-toggle> 
+                    <div  class="toggle-brand">Brand <img *ngIf="!model.ifPrint" class="logo-brand" src="../../../assets/images/pepsi_icon.png"></div></div>
+                    <div [ngClass]="model.ifPrint === true ? 'brandVolume' : 'portfolioVolume'">
+                      <div class="brand-graph">
+                        <!-- <div class="vol-growth">{{this.simulation_parameters.growth_ambition}}% Growth Ambition</div>
+                        <div style="position: relative;
+                        top: 135px;      
+                        font-size: 18px;
+                        text-align: center;
+                        color: green;">Growth Achived</div>
+                        <div style="position: relative;
+                        top: 130px;      
+                        font-size: 14px;
+                        text-align: center;
+                        color:red;">Your Scenario</div> -->
+
+                          <highcharts-chart
+                          [Highcharts] = "Highcharts" 
+                          [options] = "chartOptions"
+                          [(update)]="updateFlag" 
+                          style = "width: 100%; height: 250px; display: block; position: relative; top:-30px">
+                        </highcharts-chart>
+
+                      </div>
+                      <div class="brand-graph">
+                        <highcharts-chart
+                          [Highcharts] = "highchart2" 
+                          [options] = "chartOptions2" 
+                          [(update)]="updateFlag"
+
+                          style = "width: 100%; height: 220px; display: block;">
+                        </highcharts-chart>
+                      </div>
+                      <div class="brand-graph">
+                        <highcharts-chart
+                          [Highcharts] = "highchart3" 
+                          [options] = "chartOptions3" 
+                          [(update)]="updateFlag"
+
+                          style = "width: 100%; height: 220px; display: block;">
+                        </highcharts-chart>
+                      </div>
+                    <div class="brand-graph">
+                      <mat-radio-group [value]="showgraph"  aria-label="Select an option">
+                        <mat-radio-button value="volume" (change)="graphChange($event)">Volume Due to</mat-radio-button>
+                        <mat-radio-button value="revenue" (change)="graphChange($event)">Incremental Revenue</mat-radio-button>
+                      </mat-radio-group> 
+                      <highcharts-chart *ngIf="showgraph == 'volume'"
+                        [Highcharts] = "highchart4" 
+                        [options] = "chartOptions4" 
+                        [(update)]="updateFlag"
+
+                        style = "width: 100%; height: 220px; display: block; padding-top: 40px;">
+                      </highcharts-chart>
+
+                      <highcharts-chart *ngIf="showgraph == 'revenue'"
+                      [Highcharts] = "highchart8" 
+                      [options] = "chartOptions8" 
+                      [(update)]="updateFlag"
+
+                      style = "width: 100%; height: 220px; display: block; padding-top: 40px;">
                     </highcharts-chart>
-                  </div>
-                  <div class="brand-graph">
-                    <highcharts-chart
-                      [Highcharts] = "highchart3" 
-                      [options] = "chartOptions3" 
-                      style = "width: 100%; height: 220px; display: block;">
-                    </highcharts-chart>
-                  </div>
-                <div class="brand-graph">
-                  <mat-radio-group [value]="showgraph"  aria-label="Select an option">
-                    <mat-radio-button value="volume" (change)="graphChange($event)">volume</mat-radio-button>
-                    <mat-radio-button value="abc" (change)="graphChange($event)">abc</mat-radio-button>
-                  </mat-radio-group> 
-                  <highcharts-chart *ngIf="showgraph == 'volume'"
-                    [Highcharts] = "highchart4" 
-                    [options] = "chartOptions4" 
-                    style = "width: 100%; height: 220px; display: block;">
-                  </highcharts-chart>
-                </div>
-                </div>
+                    </div>
+                    </div>
               </form>
+            </div>
               <!-- Execution Data start from here -->
               <div class="execution-data" *ngIf="execution">
-                <div class="left-input">
-                  <div class="input-pp mt-a">PP</div>
+                <!-- <div class="left-input">
+                  <div class="input-pp mt-a">Pack Size</div>
                   <div class="input-pp mt-b">0.5</div>
                   <div class="input-pp mt-c">1</div>
                   <div class="input-pp mt-d">3</div>
-                </div>
+                </div> -->
                 <!-- Grammage Table -->
                   <div id="Grammage" class="simulator">
-                      <table class="simulator-data">
+                      <table class="simulator-data" style="width:100%">
                           <thead>
                             <tr>
-                              <th colspan="3">Grammage</th>
+                              <th colspan="1"> &nbsp;</th>    
+                              <th colspan="3">Price Per Pack</th>
+                              <th colspan="3">Distribution (TDP Share)</th>
+                              <th colspan="1">Pack Mix</th>
+                              <th colspan="1">DA%GR</th>
                             </tr>
                           </thead>
+                          
                         <tbody>
                             <tr class="sub-head">
+                              <td class="border-r">Pack Size</td>
                               <td>Current Pack Level Standings</td>
-                              <td>Recommenda tions</td>
+                              <td>Recommendations</td>
                               <td class="border-r">Try your Scenario</td>
+                              <td>Current Pack Level Standings</td>
+                              <td>Recommendations</td>
+                              <td class="border-r">Try your Scenario</td>
+                              <td class="border-r">Current Pack Level Standings</td>
+                              <td class="border-r">Current Pack Level Standings</td>
                             </tr>
-                            <tr class="t-data">
-                              <td class="flex-a"><div class="black">3.6</div> </td> 
-                              <td class="flex-a"><div class="blue">3.6</div> </td> 
-                              <td class="flex-a"><div class="white">3.6</div></td> 
-                            </tr>
-                            <tr class="t-data">
-                              <td class="flex-a"><div class="black">3.6</div> </td> 
-                              <td class="flex-a"><div class="blue">3.6</div> </td> 
-                              <td class="flex-a"><div class="white">3.6</div></td> 
-                            </tr>
-                            <tr class="t-data">
-                              <td class="flex-a"><div class="black">3.6</div> </td> 
-                              <td class="flex-a"><div class="blue">3.6</div> </td> 
-                              <td class="flex-a"><div class="white">3.6</div></td> 
-                            </tr>
+                            
+                            <tr *ngFor="let p of price_pack_current_standings">
+                              <td class="input-pp mt-b border-r">{{p.pack_size_bevs}}</td>
+
+                              <td class="flex-a"><div class="black">{{p.current_price_per_pack}}</div> </td>
+                              <td class="flex-a"><div class="blue">{{p.recommended_values_price}}</div> </td> 
+                              <td class="flex-a border-r"><input type="number" [(ngModel)]="p.digital_price_scenario" (ngModelChange)="onTryExecutionScenario(p)" class="white try-scenario"></td>
+                              <td class="flex-a"><div class="black">{{p.distribution_type_tdp}}</div> </td>
+                              <td class="flex-a"><div class="blue">{{p.recommended_values_distribution}}</div> </td> 
+                              <td class="flex-a border-r"><input type="number" [(ngModel)]="p.digital_dis_scenario" (ngModelChange)="onTryExecutionScenario(p)" class="white try-scenario"></td>
+                              
+                              <td class="flex-a border-r"><div class="black">{{p.packmix_by_channel_percent}}</div> </td>
+                              <td class="flex-a border-r"><div class="black">{{p.internal_da_percent}}</div> </td>
+                            </tr>  
+                                                   
                         </tbody>
                       </table>
                   </div>
                   <!-- Distribution TDP Table -->
-                  <div id="DistributionTDP" class="simulator">
-                    <table class="simulator-data">
-                        <thead>
-                          <tr>
-                            <th colspan="3">Distribution (TDP Share)</th>
-                          </tr>
-                        </thead>
-                      <tbody>
-                          <tr class="sub-head">
-                            <td>Current Pack Level Standings</td>
-                            <td>Recommenda tions</td>
-                            <td class="border-r">Try your Scenario</td>
-                          </tr>
-                          <tr class="t-data">
-                            <td class="flex-a"><div class="black">3.6</div> </td> 
-                            <td class="flex-a"><div class="blue">3.6</div> </td> 
-                            <td class="flex-a"><div class="white">3.6</div></td> 
-                          </tr>
-                          <tr class="t-data">
-                            <td class="flex-a"><div class="black">3.6</div> </td> 
-                            <td class="flex-a"><div class="blue">3.6</div> </td> 
-                            <td class="flex-a"><div class="white">3.6</div></td> 
-                          </tr>
-                          <tr class="t-data">
-                            <td class="flex-a"><div class="black">3.6</div> </td> 
-                            <td class="flex-a"><div class="blue">3.6</div> </td> 
-                            <td class="flex-a"><div class="white">3.6</div></td> 
-                          </tr>
-                      </tbody>
-                    </table>
-                </div>
-                <!-- Distribution ND Table -->
-                <!-- <div id="DistributionND" class="simulator">
-                  <table class="simulator-data">
-                      <thead>
-                        <tr>
-                          <th colspan="3">Distribution (ND)</th>
-                        </tr>
-                      </thead>
-                    <tbody>
-                        <tr class="sub-head">
-                          <td>Current Pack Level Standings</td>
-                          <td>Recommenda tions</td>
-                          <td class="border-r">Try your Scenario</td>
-                        </tr>
-                        <tr class="t-data">
-                          <td class="flex-a"><div class="black">3.6</div> </td> 
-                          <td class="flex-a"><div class="blue">3.6</div> </td> 
-                          <td class="flex-a"><div class="white">3.6</div></td> 
-                        </tr>
-                        <tr class="t-data">
-                          <td class="flex-a"><div class="black">3.6</div> </td> 
-                          <td class="flex-a"><div class="blue">3.6</div> </td> 
-                          <td class="flex-a"><div class="white">3.6</div></td> 
-                        </tr>
-                        <tr class="t-data">
-                          <td class="flex-a"><div class="black">3.6</div> </td> 
-                          <td class="flex-a"><div class="blue">3.6</div> </td> 
-                          <td class="flex-a"><div class="white">3.6</div></td> 
-                        </tr>
-                    </tbody>
-                  </table>
-              </div> -->
-              <!-- Distribution PackMix Table -->
-              <div id="PackMix" class="simulator">
-                <table class="simulator-data">
+                 
+              </div>
+           
+              <div class="toggle-flex media-toggle">
+                <div class="toggle-portfolio">Table</div>
+                <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media"></mat-slide-toggle> 
+                <div class="toggle-brand">Chart</div>
+              </div>
+            <!-- Media Data start from here -->
+            <div class="execution-data" *ngIf="!model.Media && media">
+              <div id="A" class="simulator" >
+                <table width="200" class="simulator-data td-height">
                     <thead>
                       <tr>
-                        <th colspan="3">Pack Mix</th>
-                      </tr>
+                        <th colspan="1"> &nbsp;</th>    
+                        <th colspan="1">Effectiveness</th>
+                        <th colspan="3">{{this.selectedMedia}} Spend</th>
+                        <th colspan="3" *ngIf="this.selectedMedia == 'TV'">{{this.selectedMedia}} GRP</th>
+                        <th colspan="2">{{this.selectedMedia}} VOL Contribution</th>
+                        <th colspan="2">{{this.selectedMedia}} ROI</th>
+                    </tr>
                     </thead>
-                  <tbody>
-                      <tr class="sub-head">
-                        <td>Current Pack Level Standings</td>
-                        <td>Recommenda tions</td>
+                    <tbody>
+                      <tr class="sub-head mh">
+                        <td class="border-r" height="45"> </td> 
+
+                        <td>{{this.selectedMedia == 'TV' ? 'Current Standings': 'Current Pack Level Standings'}}</td>
+
+                        <td>{{this.selectedMedia == 'TV' ? 'Current Standings': 'Current Pack Level Standings'}}</td>
+                        <td>Recommendations($k)</td>
                         <td class="border-r">Try your Scenario</td>
+
+                        <td *ngIf="this.selectedMedia == 'TV'">{{this.selectedMedia == 'TV' ? 'Current Standings': 'Current Pack Level Standings'}}</td>
+                        <td *ngIf="this.selectedMedia == 'TV'">Recommendations</td>
+                        <td *ngIf="this.selectedMedia == 'TV'"class="border-r">Try your Scenario</td>
+
+                        <td>Current Standings</td>
+                        <td class="border-r">Recommendations</td>
+
+                        <td>Current Standings</td>
+                        <td class="border-r">Recommendations</td>
+
+                       
                       </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
+                      
+                      <tr class="t-data" *ngFor="let m of media_details">
+                        <td class="mheading border-r">{{m.genre_platform}}</td> 
+
+                        <td class="flex-a border-r"><div class="black">{{m.effectiveness}}</div></td> 
+
+                        <td class="flex-a"><div class="black">{{(m.current_spends/1000).toFixed(2)}}</div> </td> 
+                        <td class="flex-a"><div class="blue">{{m.genre_platform == 'Total' ? (this.selectedMedia == 'TV' ? (recommended_values.total_tv_spends/1000).toFixed(2) :  (recommended_values.total_digital_spends/1000).toFixed(2)) : (m.recommended_spend/1000).toFixed(2)}}</div> </td> 
+                        <td class="flex-a border-r"><input type="number" [readonly]="m.genre_platform == 'Total'" [(ngModel)]="m.try_scenario_spend" (ngModelChange)="onTryScenario(m.try_scenario)" class="white try-scenario"></td> 
+
+                        
+
+                        <td class="flex-a" *ngIf="this.selectedMedia == 'TV'"><div class="black">{{m.current_grp}}</div> </td> 
+                        <td class="flex-a" *ngIf="this.selectedMedia == 'TV'"><div class="blue">{{m.genre_platform == 'Total' ? (this.selectedMedia == 'TV'? this.total_tv_grp : this.total_digital_grp): m.recommended_grp}}</div> </td> 
+                        <td class="flex-a border-r" *ngIf="this.selectedMedia == 'TV'"><input type="number" [readonly]="m.genre_platform == 'Total'" [(ngModel)]="m.try_scenario" (ngModelChange)="onTryScenario(m.try_scenario)" class="white try-scenario"></td> 
+                        <td class="flex-a"><div class="black">{{(m.current_volume/1000).toFixed(2)}}</div> </td> 
+                        <td class="flex-a border-r"><div  class="blue">{{m.genre_platform == 'Total' ? (this.selectedMedia == 'TV' ? (recommended_values.total_tv_vc/1000).toFixed(2) : (recommended_values.total_digital_vc/1000).toFixed(2)) : (m.recommended_vc/1000).toFixed(2)}}</div> </td> 
+
+                        <td class="flex-a"><div class="black">{{m.roi}}</div> </td> 
+                        <td class="flex-a border-r"><div class="blue">{{m.genre_platform == 'Total' ? (this.selectedMedia == 'TV' ? (recommended_values.total_tv_roi ? recommended_values.total_tv_roi: ''): (recommended_values.total_digital_roi ? recommended_values.total_digital_roi : '')): (m.recommended_roi ? m.recommended_roi: '')}}</div> </td> 
+                    </tr>              
                   </tbody>
                 </table>
-            </div>
-       
-      <!-- Distribution D&A Table-->
-      <div id="DA" class="simulator">
-        <table class="simulator-data">
-            <thead>
-              <tr>
-                <th colspan="3">D&A (% GR)</th>
-              </tr>
-            </thead>
-          <tbody>
-              <tr class="sub-head">
-                <td>Current Pack Level Standings</td>
-                <td>Recommenda tions</td>
-                <td class="border-r">Try your Scenario</td>
-              </tr>
-              <tr class="t-data">
-                <td class="flex-a"><div class="black">3.6</div> </td> 
-                <td class="flex-a"><div class="blue">3.6</div> </td> 
-                <td class="flex-a"><div class="white">3.6</div></td> 
-              </tr>
-              <tr class="t-data">
-                <td class="flex-a"><div class="black">3.6</div> </td> 
-                <td class="flex-a"><div class="blue">3.6</div> </td> 
-                <td class="flex-a"><div class="white">3.6</div></td> 
-              </tr>
-              <tr class="t-data">
-                <td class="flex-a"><div class="black">3.6</div> </td> 
-                <td class="flex-a"><div class="blue">3.6</div> </td> 
-                <td class="flex-a"><div class="white">3.6</div></td> 
-              </tr>
-          </tbody>
-        </table>
-    </div>
               </div>
-            <!-- Execution Data End here -->
+            </div>
+
+            <div class="col-md-12" class="grp-graph-section" *ngIf="model.Media">
+              <!-- <div class="col-md-12" class="grp-strip">
+                <div class="col-md-6" class="grp-sub-section">{{selectedMedia}} Spend</div>
+                <div class="col-md-6" class="grp-sub-section">{{selectedMedia}} GRP</div>
+
+              </div>  -->
+              <div class="row">
+              <div class="col-md-6" style=" width:500px;">
+                
+                <highcharts-chart
+                 [Highcharts] = "highcharts5" 
+                 [options] = "chartOptions5" 
+                 style = "width: 100%; height: 300px;">
+                </highcharts-chart>
+              </div>
+              <div class="col-md-6" style="width:500px;">
+                <highcharts-chart
+                  [Highcharts] = "highcharts6" 
+                  [options] = "chartOptions6" 
+                  style = "width: 100%; height: 300px;">
+                </highcharts-chart>
+              </div>
+              </div>
+            </div>
+ 
+            <!-- <div class=" grp"  *ngIf="model.Media">
+              <div class="brand-graph ">
+                <highcharts-chart
+                  [Highcharts] = "highcharts5" 
+                  [options] = "chartOptions5" 
+                  style = "width: 100%; height: 500px; display: block; position: relative; right: 20px; top:-50px">
+                </highcharts-chart>
+
+              </div>
+
+              <div class="brand-graph ">
+                <highcharts-chart
+                  [Highcharts] = "highcharts6" 
+                  [options] = "chartOptions6" 
+                  style = "width: 100%; height: 500px; display: block; position: relative; right: 20px; top:-50px">
+                </highcharts-chart>
+
+              </div>
+            </div> -->
+            
+            
+</div>
+</div>
+
+ <!-- Execution Data End here -->
               <!--<table class="simulator-table">
                 <thead>
                   <tr>
@@ -547,214 +621,8 @@
                   </tr>
                 </tbody>
               </table> -->
-              <div class="toggle-flex media-toggle">
-                <div class="toggle-portfolio">Table</div>
-                <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media">{{model.Media}}</mat-slide-toggle> 
 
-                <!-- <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media"></mat-slide-toggle>  -->
-                <div class="toggle-brand">Chart</div>
-              </div>
-            <!-- Media Data start from here -->
-            <div class="execution-data" *ngIf="!model.Media && media">
-             
-              <!-- <div class="left-input">
-                <div class="input-pp mt-a">PP</div>
-                <div class="input-pp mt-b">0.5</div>
-                <div class="input-pp mt-c">1</div>
-                <div class="input-pp mt-d">3</div>
-              </div> -->
-              <!-- Grammage Table -->
-              <div id="A" class="simulator" >
-                <table width="200" class="simulator-data td-height">
-                    <thead>
-                      <tr>
-                        <th colspan="3"> &nbsp;</th>
-                      </tr>
-                    </thead>
-                  <tbody>
-                      <tr class="t-data mh">
-                        <td height="45"> </td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="mheading"> Total</td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="mheading"> Sports Bein</td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="mheading"> Sports Non Bein</td> 
-                      </tr>
-
-                  </tbody>
-                </table>
-              </div>
-              <div id="A" class="simulator">
-                <table class="simulator-data">
-                    <thead>
-                      <tr>
-                        <th colspan="3">Effectiveness</th>
-                      </tr>
-                    </thead>
-                  <tbody>
-                      <tr class="sub-head mh">
-                        <td>Current Pack Level Standings</td>
-                       
-                      </tr>
-                      <tr class="t-data">
-                       
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                       
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div id="A" class="simulator">
-                <table class="simulator-data">
-                    <thead>
-                      <tr>
-                        <th colspan="3">TV Spend</th>
-                      </tr>
-                    </thead>
-                  <tbody>
-                      <tr class="sub-head mh">
-                        <td>Current Pack Level Standings</td>
-                        <td>Recommenda tions</td>
-                        <td class="border-r">Try your Scenario</td>
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div id="A" class="simulator">
-                <table class="simulator-data">
-                    <thead>
-                      <tr>
-                        <th colspan="3">TV GRP</th>
-                      </tr>
-                    </thead>
-                  <tbody>
-                      <tr class="sub-head mh">
-                        <td>Current Pack Level Standings</td>
-                        <td>Recommenda tions</td>
-                        <td class="border-r">Try your Scenario</td>
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                        <td class="flex-a"><div class="white">3.6</div></td> 
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div id="A" class="simulator">
-                <table class="simulator-data">
-                    <thead>
-                      <tr>
-                        <th colspan="3">TV VOL Contribution</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="sub-head mh">
-                        <td>Current</td>
-                        <td class="border-r">New</td>
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                      </tr>
-                      <tr class="t-data">
-                        <td class="flex-a"><div class="black">3.6</div> </td> 
-                        <td class="flex-a"><div class="blue">3.6</div> </td> 
-                      </tr>
-                    </tbody>
-                </table>
-              </div>
-              <div id="A" class="simulator">
-                <table class="simulator-data">
-                  <thead>
-                    <tr>
-                      <th colspan="3">TV ROI</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="sub-head mh">
-                      <td>Current</td>
-                      <td class="border-r">New</td>
-                    </tr>
-                    <tr class="t-data">
-                      <td class="flex-a"><div class="black">3.6</div> </td> 
-                      <td class="flex-a"><div class="blue">3.6</div> </td> 
-                    </tr>
-                    <tr class="t-data">
-                      <td class="flex-a"><div class="black">3.6</div> </td> 
-                      <td class="flex-a"><div class="blue">3.6</div> </td> 
-                    </tr>
-                    <tr class="t-data">
-                      <td class="flex-a"><div class="black">3.6</div> </td> 
-                      <td class="flex-a"><div class="blue">3.6</div> </td> 
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-                  
-                  
-            </div>
-
-            <div class="execution-data"  *ngIf="model.Media">
-              <table class="media-tv-graph" >
-                <thead>
-                  <tr>
-                    <th>Digital Spend</th>
-                    <th>Digital GRP</th>
-                    <th style="width: 350px;"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><img src="../../../assets/images/chart.jpg"></td>
-                    <td><img src="../../../assets/images/chart.jpg"></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <!-- <div class="media-data"  *ngIf="media">
+<!-- <div class="media-data"  *ngIf="media">
               <div class="toggle-flex media-toggle">
                 <mat-slide-toggle #TV  [(ngModel)]="model.Media" name="Media">{{model.Media}}</mat-slide-toggle> 
               </div>
@@ -817,5 +685,226 @@
                     </table>
             </div>
         </div> -->
-    </div>
+ <!-- Distribution ND Table -->
+                <!-- <div id="DistributionND" class="simulator">
+                  <table class="simulator-data">
+                      <thead>
+                        <tr>
+                          <th colspan="3">Distribution (ND)</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr class="sub-head">
+                          <td>Current Pack Level Standings</td>
+                          <td>Recommenda tions</td>
+                          <td class="border-r">Try your Scenario</td>
+                        </tr>
+                        <tr class="t-data">
+                          <td class="flex-a"><div class="black">3.6</div> </td> 
+                          <td class="flex-a"><div class="blue">3.6</div> </td> 
+                          <td class="flex-a"><div class="white">3.6</div></td> 
+                        </tr>
+                        <tr class="t-data">
+                          <td class="flex-a"><div class="black">3.6</div> </td> 
+                          <td class="flex-a"><div class="blue">3.6</div> </td> 
+                          <td class="flex-a"><div class="white">3.6</div></td> 
+                        </tr>
+                        <tr class="t-data">
+                          <td class="flex-a"><div class="black">3.6</div> </td> 
+                          <td class="flex-a"><div class="blue">3.6</div> </td> 
+                          <td class="flex-a"><div class="white">3.6</div></td> 
+                        </tr>
+                    </tbody>
+                  </table>
+              </div> -->
+
+
+
+
+
+              <!-- <div id="DistributionTDP" class="simulator">
+                <table class="simulator-data">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Distribution (TDP Share)</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                      <tr class="sub-head">
+                        <td>Current Pack Level Standings</td>
+                        <td>Recommenda tions</td>
+                        <td class="border-r">Try your Scenario</td>
+                      </tr>
+                      <tr class="t-data">
+                        <td class="flex-a"><div class="black">3.6</div> </td> 
+                        <td class="flex-a"><div class="blue">3.6</div> </td> 
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="flex-a"><div class="black">3.6</div> </td> 
+                        <td class="flex-a"><div class="blue">3.6</div> </td> 
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                      <tr class="t-data">
+                        <td class="flex-a"><div class="black">3.6</div> </td> 
+                        <td class="flex-a"><div class="blue">3.6</div> </td> 
+                        <td class="flex-a"><div class="white">3.6</div></td> 
+                      </tr>
+                  </tbody>
+                </table>
+            </div> -->
+           
+          <!-- Distribution PackMix Table -->
+          <!-- <div id="PackMix" class="simulator">
+            <table class="simulator-data">
+                <thead>
+                  <tr>
+                    <th colspan="3">Pack Mix</th>
+                  </tr>
+                </thead>
+              <tbody>
+                  <tr class="sub-head">
+                    <td>Current Pack Level Standings</td>
+                    <td class="border-r">Try your Scenario</td>
+                  </tr>
+                  <tr class="t-data">
+                    <td class="flex-a"><div class="black">3.6</div> </td> 
+                    <td class="flex-a"><div class="white">3.6</div></td>  
+                  </tr>
+                  <tr class="t-data">
+                    <td class="flex-a"><div class="black">3.6</div> </td> 
+                     <td class="flex-a"><div class="blue">3.6</div> </td> 
+                    <td class="flex-a"><div class="white">3.6</div></td>  
+                  </tr>
+                  <tr class="t-data">
+                    <td class="flex-a"><div class="black">3.6</div> </td> 
+                    <td class="flex-a"><div class="white">3.6</div></td>
+                  </tr>
+              </tbody>
+            </table>
+        </div> -->
+   
+  <!-- Distribution D&A Table-->
+  <!-- <div id="DA" class="simulator">
+    <table class="simulator-data">
+        <thead>
+          <tr>
+            <th colspan="3">D&A (% GR)</th>
+          </tr>
+        </thead>
+      <tbody>
+          <tr class="sub-head">
+            <td>Current Pack Level Standings</td>
+            <td>Recommenda tions</td>
+            <td class="border-r">Try your Scenario</td>
+          </tr>
+          <tr class="t-data">
+            <td class="flex-a"><div class="black">3.6</div> </td> 
+             <td class="flex-a"><div class="blue">3.6</div> </td> 
+            <td class="flex-a"><div class="white">3.6</div></td> 
+          </tr>
+          <tr class="t-data">
+            <td class="flex-a"><div class="black">3.6</div> </td> 
+             <td class="flex-a"><div class="blue">3.6</div> </td> 
+            <td class="flex-a"><div class="white">3.6</div></td>  
+          </tr>
+          <tr class="t-data">
+            <td class="flex-a"><div class="black">3.6</div> </td> 
+             <td class="flex-a"><div class="blue">3.6</div> </td> 
+            <td class="flex-a"><div class="white">3.6</div></td>  
+          </tr>
+      </tbody>
+    </table>
+</div> -->
+
+
+<!-- <div id="A" class="simulator">
+  <table class="simulator-data">
+      <thead>
+        <tr>
+          <th colspan="3">TV Spend</th>
+        </tr>
+      </thead>
+    <tbody>
+        <tr class="sub-head mh">
+          <td>Current Pack Level Standings</td>
+          <td>Recommenda tions</td>
+          <td class="border-r">Try your Scenario</td>
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+          <td class="flex-a"><div class="white">3.6</div></td> 
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+          <td class="flex-a"><div class="white">3.6</div></td> 
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+          <td class="flex-a"><div class="white">3.6</div></td> 
+        </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- <div id="A" class="simulator">
+  <table class="simulator-data">
+      <thead>
+        <tr>
+          <th colspan="3">TV GRP</th>
+        </tr>
+      </thead>
+    <tbody>
+        <tr class="sub-head mh">
+          <td>Current Pack Level Standings</td>
+          <td>Recommenda tions</td>
+          <td class="border-r">Try your Scenario</td>
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+          <td class="flex-a"><div class="white">3.6</div></td> 
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+          <td class="flex-a"><div class="white">3.6</div></td> 
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+          <td class="flex-a"><div class="white">3.6</div></td> 
+        </tr>
+    </tbody>
+  </table>
 </div>
+<div id="A" class="simulator">
+  <table class="simulator-data">
+      <thead>
+        <tr>
+          <th colspan="3">TV VOL Contribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sub-head mh">
+          <td>Current</td>
+          <td class="border-r">New</td>
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+        </tr>
+        <tr class="t-data">
+          <td class="flex-a"><div class="black">3.6</div> </td> 
+          <td class="flex-a"><div class="blue">3.6</div> </td> 
+        </tr>
+      </tbody>
+  </table>
+</div> -->

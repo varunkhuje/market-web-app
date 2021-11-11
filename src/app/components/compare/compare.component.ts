@@ -4,6 +4,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materi
 import * as Highcharts from 'highcharts/highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+import { CommonService } from 'src/app/services/common.service';
+import { ExecutionService } from 'src/app/services/execution.service';
 
 @Component({
   selector: 'app-compare',
@@ -24,21 +26,51 @@ export class CompareComponent implements OnInit {
   media:any = false;
   media_graph: any = false;
   media_table: any = false;
+  selectedDetails: any;
+  channels: any;
+  execution_data:any;
+  selectedChannel: any = "";
+
 
   showgraph: any = 'volume';
 
   selectedScenario = "";
 
-  scenarios: string[] = ['Q1', 'Q2', 'Q3', 'Q4'];
+  scenarios: string[] = ['S01', 'S02',];
 
 
-  constructor(public dialog: MatDialog,){
-      this.model = {name: null, ExeCution: false, Media: false,};
+  constructor(public dialog: MatDialog, private  commonService: CommonService,private executionService: ExecutionService){
+      this.model = {name: null, ExeCution: false, Media: false};
   }
 
-  onExecution(){
+  getChannels(){
+    this.selectedDetails = this.commonService.selectedDetails;
+   
+    this.commonService.getChannels(this.selectedDetails)
+    .subscribe(
+       data => {
+         console.log(data)
+          this.channels = data.channels;             
+       },
+       error => {
+          console.log(error);
+       });
+  }
+
+  onExecution(channel:any){
     this.execution = true;
     this.media = false;
+    this.selectedDetails.channel = channel;
+    this.execution = true;
+    this.media = false;
+    this.executionService.getPackDetailsByChannel(this.selectedDetails)
+    .subscribe(
+       data => {
+          this.execution_data = data.pack_details;
+       },
+       error => {
+          console.log(error);
+       });
 
   }
 
@@ -152,7 +184,7 @@ export class CompareComponent implements OnInit {
           }
       },
       xAxis: {
-          categories: ['Current', 'Recommended', 'New'],
+          categories: ['Base', 's01', 's02'],
           labels: {
             style: {
               color: 'white'
@@ -209,7 +241,7 @@ export class CompareComponent implements OnInit {
           }
       },
       xAxis: {
-          categories: ['Current', 'Recommended','New'],
+          categories: ['Base', 's01','s02'],
           labels: {
             style: {
               color: 'white'
@@ -253,13 +285,8 @@ export class CompareComponent implements OnInit {
           }
     },
     credits: {enabled: false},
-    title: {
-        text: 'Volume Due to',
-        style: {
-          color: 'white',
-          fontSize:'12px'
-        }
-    },
+    title: null,
+    
     subtitle: {
         text: ''
     },
@@ -326,7 +353,7 @@ export class CompareComponent implements OnInit {
     },
     xAxis: {
         categories: [
-            'Current',
+            'Base',
             'New',
         ],
         crosshair: true
@@ -359,6 +386,7 @@ export class CompareComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getChannels();
   }
 
 }

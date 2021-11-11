@@ -3,7 +3,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="header-logo">
-            <img src="../../../assets/images/header_logo.jpg">
+            <img src="../../../assets/images/header_logo.jpg" style="position: relative;
+            top: -5px;"><span style="color:white">Canvas/Business Simulator </span>
         </div>
     </div>
     <div class="row">
@@ -60,22 +61,48 @@
                 </div>
                 <div class="col-lg-6 col-mg-6 pr-4">
                     <div class="simulation-title">Category:</div>
+
                     <button ngDefaultControl type="button" (click)="selectCategory(category.id)" *ngFor="let category of categories" formControlName="simulation_category" class="simulation-for" [ngClass]="{'active': category.isClicked}" (click)="category.isClicked = (category.isClicked ? false :true )">
                       {{ category.name }}
-                  </button>
-                  <p *ngIf="f.simulation_category.errors && submitted && f.simulation_category.errors.required" style="font-size: 10px;
-                  color: red;
-                  margin-top: -35px;">Category is required.</p>
+                    </button>
+                 
                     <!-- <button class="simulation-for active">Beverages</button>
+                    <button class="simulation-for">Snacks</button>
+                    <button class="simulation-for">Snacks</button>
                     <button class="simulation-for">Snacks</button> -->
+                    <!-- <button class="simulation-for">Snacks</button>
+                    <button class="simulation-for">Snacks</button> -->
+
+                    <p  *ngIf="f.simulation_category.errors && submitted && f.simulation_category.errors.required" style="top: 30px;
+                    position: relative;font-size: 10px;
+                    color: red;
+                    margin-top: -35px;">Category is required.</p>
+                   
                 </div>
+
                
                 <div class="col-lg-6 col-mg-6 pl-5">
                     <div class="simulation-title">Brand</div>
-                    <img class="brand" src="../../../assets/images/brand.jpg">
+                    <!-- <img class="brand" src="../../../assets/images/brand.jpg"> -->
+                    <button ngDefaultControl type="button" click="selectBrand('Pepsi')" formControlName="brand" class="brand-btn active"><img class="brand" src="../../../assets/images/pepsi_icon.png"></button>
+                    <button class="brand-btn"><img class="brand" src="../../../assets/images/7up_icon.png"></button>
+                    <button class="brand-btn"><img class="brand" src="../../../assets/images/lipton_icon.png"></button>
+                    <!-- <button class="brand-btn"><img class="brand" src="../../../assets/images/7up_icon.png"></button>
+                    <button class="brand-btn"><img class="brand" src="../../../assets/images/7up_icon.png"></button>
+                    <button class="brand-btn"><img class="brand" src="../../../assets/images/7up_icon.png"></button>
+                    <button class="brand-btn"><img class="brand" src="../../../assets/images/7up_icon.png"></button>
+                    <button class="brand-btn"><img class="brand" src="../../../assets/images/7up_icon.png"></button> -->
+
+                    <!-- <p  *ngIf="f.simulation_category.errors && submitted && f.simulation_category.errors.required" style="top: 30px;
+                    position: relative;font-size: 10px;
+                    color: red;
+                    margin-top: -35px;">Brand is required.</p> -->
                 </div>
             </div>
             <button class="inputs-samulation" (click)="submit()" type="submit">Input Constraints</button>
+            <div *ngIf="successful" class="alert alert-success">
+              <!-- <h4>Simulation created successfully!</h4>            -->
+            </div>
             </form>
         </div>
     </div>

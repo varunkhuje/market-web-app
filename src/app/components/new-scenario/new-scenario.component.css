@@ -29,16 +29,17 @@
 }
 button.simulation-for {
     border: solid 1px #ccc;
-    padding: 10px;
-    margin: 6px 0px;
-    border-radius: 9px;
-    width: 100%;
+    padding: 6px;
+    margin: 6px 17px 6px 0px;
+    border-radius: 7px;
+    width: 44%;
     background: #fff;
 }
-.active{
+.pr-4 .active{
     background-color: #0272d5!important;
     color: #fff;
     font-weight: 500;
+    border: none;
 }
 .simulation-title {
     font-size: 16px;
@@ -53,4 +54,26 @@ button.inputs-samulation {
     margin-top: 50px;
     color: #fff;
     font-size: 18px;
+}
+button.brand-btn {
+    border-radius: 260px;
+    background: #fff;
+    border: solid 5px #e7e3e3;
+    padding: 5px;
+    margin: 10px 12px 10px 0px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+button.brand-btn:hover{
+    background: none;
+    border: solid 5px #e7e3e3;
+    /* opacity:4; */
+    transform: scale(1.05);
+}
+button.brand-btn img {
+    width: 40px;
+    height: 40px;
+} 
+button.brand-btn.active{
+    background: #5898d1;
+    border: solid 6px #c9ddef;
 }

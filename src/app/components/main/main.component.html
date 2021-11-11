@@ -3,7 +3,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="header-logo">
-            <img src="../../../assets/images/header_logo.jpg">
+            <img src="../../../assets/images/header_logo.jpg" style="position: relative;
+            top: -5px;"><span style="color:white">Canvas/Business Simulator </span>
         </div>
         <div class="brand-dropdown">
           <div class="dropdown">
@@ -32,14 +33,14 @@
                     <form class="data-group">
                         <div class="input-group">
                             <label>Growth Ambition</label>
-                            <input type="text" class="form-control" placeholder="14-19">
+                            <input type="number" class="form-control" name="growth_ambition" [(ngModel)]="input_values.growth_ambition" placeholder="Enter Growth Ambition">
                             <div class="input-group-append">
                               <span class="input-group-text">%</span>
                             </div>
                           </div>
                           <div class="C-volume">
                               <span class="Vname">Current Volume</span>
-                              <span class="Vdata">18.67M</span>
+                              <span class="Vdata">{{total_volume}}M</span>
                           </div>
                     </form>
             </div>
@@ -48,14 +49,14 @@
                 <form class="data-group">
                     <div class="input-group">
                         <label>Max Trade</label>
-                        <input type="text" class="form-control" placeholder="12.6">
+                        <input type="number" class="form-control" name="max_trade" [(ngModel)]="input_values.max_trade" placeholder="Enter Max Trade">
                         <div class="input-group-append">
                           <span class="input-group-text">%</span>
                         </div>
                       </div>
                       <div class="C-volume">
                           <span class="Vname">Current DA</span>
-                          <span class="Vdata">12.6%</span>
+                          <span class="Vdata">{{national_da}}%</span>
                       </div>
                 </form>
             </div>
@@ -64,53 +65,59 @@
                 <form class="data-group">
                     <div class="input-group">
                         <label>WOA</label>
-                        <input type="text" class="form-control" placeholder="35">
+                        <input type="number" [(ngModel)]="input_values.woa" name="woa" class="form-control" placeholder="Enter Week On Air">
                         <div class="input-group-append">
-                          <span class="input-group-text">M</span>
+                          <!-- <span class="input-group-text">M</span> -->
                         </div>
                       </div>
                       <div class="input-group">
-                        <label>Wkly GRP</label>
-                        <input type="text" class="form-control" placeholder="12.6">
+                        <label>Weekly GRP</label>
+                        <input type="number" [(ngModel)]="input_values.weekly_grp" name="weekly_grp" class="form-control" placeholder="Enter Weekly GRP">
                         <div class="input-group-append">
-                          <span class="input-group-text">%</span>
+                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       
                       <div class="C-volume">
-                        <span class="Vname">Ideal Operating Point</span>
-                        <span class="Vdata">20%</span>
+                        <span class="Vname">Max ROI Point</span>
+                        <span class="Vdata">212</span>
                       </div>
                      
                        
                       <div class="cpg">Cost Per GRP</div>
 
-                      <div class="input-group">
-                        <label>Sports Bein</label>
-                        <input type="text" class="form-control" placeholder="12.6">
+                      <!-- <div class="col-lg-4 col-sm-12 col-xs-12" *ngFor="let segment of segments">
+                        <div class="segment-panel">
+                            <div class="segment-title">{{segment.Cluster_description}}</div>
+                            <section class="example-section">
+                                <mat-checkbox class="example-margin" [(ngModel)]="segment.isChecked" 
+                                [checked] = "(isChecked == segment.Cluster_description)"
+                                (ngModelChange)="onCheckChange(segment)"></mat-checkbox>
+                              </section> -->
+
+
+                      <div class="input-group" *ngFor="let genre of tv_genres, let i=index">
+                        <label>{{genre.genre_platform}}</label>
+                        <input type="text" class="form-control" name="genre-{{i}}" [(ngModel)]="genre.cost_per_metric" placeholder="Enter Value">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
-                      <div class="input-group">
+                      <!-- <div class="input-group">
                         <label>Fiction</label>
-                        <input type="text" class="form-control" placeholder="12.6">
+                        <input type="text" class="form-control"  placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Sports Non Bein</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Information and Magazine</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
@@ -118,8 +125,8 @@
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
                           <!-- <span class="input-group-text">%</span> -->
-                        </div>
-                      </div>
+                        <!-- </div>
+                      </div> --> 
                 </form>
             </div>
 
@@ -128,7 +135,7 @@
                 <form class="data-group">
                   <div class="input-group">
                     <label>Total digital Spend</label>
-                    <input type="text" class="form-control" placeholder="12.6">
+                    <input type="number" class="form-control"  [(ngModel)]="input_values.total_spend"  name="total_spend" placeholder="Enter Total Digital Spend">
                     <div class="input-group-append">
                       <!-- <span class="input-group-text">%</span> -->
                     </div>
@@ -137,71 +144,71 @@
                         <span class="Vname">Digital Spend Cap</span>
                         <span class="Vdata">20%</span>
                     </div> -->
-                    <div class="C-volume">
+                    <!-- <div class="C-volume">
                       <span class="Vname">Ideal Operating Point</span>
                       <span class="Vdata">20%</span>
-                    </div>
+                    </div> -->
                    
                    
                     
                     <div class="cpg">Cost Per Metric</div>
 
-                      <div class="input-group">
+                    <div class="input-group" *ngFor="let platform of digital_platforms, let i=index">
+                      <label>{{platform.genre_platform}}(<small>{{platform.metric_type_digital}}</small>)</label>
+                      <input type="text" class="form-control" name="platform-{{i}}"   [(ngModel)]="platform.cost_per_metric" placeholder="Enter Value">
+                      <div class="input-group-append">
+                      </div>
+                    </div>
+
+                      <!-- <div class="input-group">
                         <label>Twitter </label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>DMS Network</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Snalpchat</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Programmatic</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Facebook</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Youtube</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Instagram</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
                         </div>
                       </div>
                       <div class="input-group">
                         <label>Kooora.com</label>
                         <input type="text" class="form-control" placeholder="12.6">
                         <div class="input-group-append">
-                          <!-- <span class="input-group-text">%</span> -->
+                          <span class="input-group-text">%</span>
                         </div>
-                      </div>
+                      </div> -->
                 </form>
             </div>
             <button class="run-simulation" (click)="openAlertBox()">Run Base Simulation</button>

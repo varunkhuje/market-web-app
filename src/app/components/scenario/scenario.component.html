@@ -3,7 +3,8 @@
 <div class="container-fluid">
     <div class="row">
       <div class="header-logo">
-        <img src="../../../assets/images/header_logo.jpg">
+        <img src="../../../assets/images/header_logo.jpg" style="position: relative;
+        top: -5px;"><span style="color:white">Canvas/Business Simulator </span>
     </div>
         <div class="col-md-3 col-lg-3">
             <div class="filter-panel">
@@ -79,7 +80,7 @@
                 <div class="col-md-6 col-lg-6 top-btn">
                     <button mat-stroked-button color="primary">Duplicate</button>
                     <button mat-stroked-button color="primary">Archive</button>
-                    <button mat-raised-button color="primary" [routerLink]="['/new_scenario']">New Scenerio</button>
+                    <button mat-raised-button color="primary" [routerLink]="['/new_scenario']">New Simulation</button>
                 </div>
             </div>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
